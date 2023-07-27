@@ -1,0 +1,7 @@
+directories:
+  output: dist
+  buildResources: build
+extraMetadata:
+  main: build/electron.js
+files: []
+electronVersion: 25.3.2
