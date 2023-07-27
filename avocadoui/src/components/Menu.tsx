@@ -1,14 +1,14 @@
 import React from 'react';
 import '../css/Menu.css'
 
-function Menu() {
+function Menu(props: any) {
   return (
     <div className="Menu">
         <ul>
-            <li>Tasks</li>
-            <li>Completed</li>
-            <li>Calendar</li>
-            <li>Sync</li>
+            <li><button onClick={() => props.changePageIndex(0)}>Tasks</button></li>
+            <li><button onClick={() => props.changePageIndex(1)}>Completed</button></li>
+            <li><button onClick={() => props.changePageIndex(2)}>Calendar</button></li>
+            <li><button onClick={() => props.changePageIndex(3)}>Sync</button></li>
         </ul>
     </div>
   );
