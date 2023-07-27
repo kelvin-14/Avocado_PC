@@ -8,13 +8,14 @@ function createWindow() {
         slashes: true,
     });
     const win = new BrowserWindow({
-        width: 800,
-        height: 800,
+        width: 1200,
+        height: 1200,
         webPreferences: {
             nodeIntegration: true
         }
     });
     win.loadURL(startUrl);
+    win.setMenu(null)
     app.on('window-all-closed', () => {
         if (process.platform !== 'darwin') {
             app.quit()
