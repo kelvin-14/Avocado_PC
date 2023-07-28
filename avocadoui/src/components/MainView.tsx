@@ -1,12 +1,13 @@
-import React from 'react';
 import '../css/MainView.css'
+import Tasks from './tasks/Tasks';
 
 function MainView(props: any) {
+    
 
     let pageToShow = <p>Error</p>;
     switch (props.menuIndex) {
         case 0:
-            pageToShow = <p>Tasks</p>
+            pageToShow = <Tasks/>
             break;
 
         case 1:

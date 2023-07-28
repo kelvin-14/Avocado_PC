@@ -1,0 +1,11 @@
+.Tasks {
+    display: flex;
+    flex-direction: row;
+    background-color: green;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+p {
+    margin-top: 0;
+}

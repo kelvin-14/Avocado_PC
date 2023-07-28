@@ -11,8 +11,8 @@ function createWindow() {
         slashes: true,
     });
     const win = new BrowserWindow({
-        width: 1200,
-        height: 1200,
+        width: 1100,
+        height: 700,
         webPreferences: {
             nodeIntegration: true
         }

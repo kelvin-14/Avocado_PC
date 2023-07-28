@@ -5,3 +5,18 @@
     margin: 0px;
     padding: 0px;
 }
+
+ul {
+    background-color: bisque;
+    padding: 0;
+}
+
+button {
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: start;
+    margin-bottom: 10px;
+}

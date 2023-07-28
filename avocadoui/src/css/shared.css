@@ -1,0 +1,23 @@
+p {
+    margin-top: 0;
+ }
+
+ul {
+    margin-top: 0;
+    list-style: none;
+}
+
+li {
+    margin-top: 0;
+}
+
+h1 h2 h3 h4 h5 {
+    margin-top: 0;
+}
+
+button {
+    border: none;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
