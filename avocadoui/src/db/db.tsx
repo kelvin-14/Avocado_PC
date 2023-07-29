@@ -1,9 +1,9 @@
 import { IDBPDatabase, openDB } from 'idb';
 
 class IDXDB {
-    private db: any
-    private dbName: string
-
+    public db: any
+    public dbName: string
+ 
     constructor(databaseName: string) {
         this.dbName = databaseName
     }
@@ -12,8 +12,8 @@ class IDXDB {
     public async createTable(tableName: string) {
         try {
             console.log("creating tables")
-            this.db = await openDB(this.dbName, 1, { upgrade(dbs: IDBPDatabase) {
-                            dbs.createObjectStore('tasks', { keyPath: 'id' })
+            this.db = await openDB(this.dbName, 1, { upgrade(db: IDBPDatabase) {
+                            db.createObjectStore('tasks', { keyPath: 'id' })
                         }, } )
 
 
@@ -40,6 +40,7 @@ class IDXDB {
     }
 
     public async putValue(tableName: string, value: object) {
+        console.log(this)
         const tx = this.db.transaction(tableName, 'readwrite');
         const store = tx.objectStore(tableName);
         const result = await store.put(value);
@@ -59,21 +60,6 @@ class IDXDB {
         await store.delete(id);
         console.log('Deleted Data', id);
         return id;
-    }
-
-    public async putSampleData() {
-        const item1: object = {
-            id: 1, 
-            title: "task 1"
-        }
-
-        const sample: object[] = [
-            item1
-        ]
-
-        for (const item of sample) {
-            this.putValue("tasks", item)
-        }
     }
 }
 

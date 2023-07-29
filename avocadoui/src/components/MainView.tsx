@@ -1,13 +1,15 @@
 import '../css/MainView.css'
 import Tasks from './tasks/Tasks';
 
-function MainView(props: any) {
+function MainView({menuIndex, addItem} : { menuIndex: number, addItem: (tableName: string, object: object) => void}) {
     
 
     let pageToShow = <p>Error</p>;
-    switch (props.menuIndex) {
+    switch (menuIndex) {
         case 0:
-            pageToShow = <Tasks/>
+            pageToShow = < Tasks
+                addItem = {addItem}
+                />
             break;
 
         case 1:

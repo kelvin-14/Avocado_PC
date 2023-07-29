@@ -4,16 +4,18 @@ import MainView from './MainView';
 import '../css/App.css'
 import IDXDB from '../db/db';
 
-const setupDB = async () => {
-  const avocadoDatabase = new IDXDB("AvocadoDatabase")
-  await avocadoDatabase.createTable("tasks")
-  await avocadoDatabase.putValue("tasks", {id: 1, title: "some task"}) 
-}
 
 
 function App() {
+  const avocadoDatabase = new IDXDB("AvocadoDatabase")
   useEffect(() => {
-    setupDB();
+    const run = async () => {
+      await avocadoDatabase.createTable("tasks")
+      await avocadoDatabase.putValue("tasks", {id: 1, title: "some task"}) 
+      await avocadoDatabase.putValue("tasks", {id: 2, title: "some task"}) 
+    }
+    run()
+    
   }, [])
 
   const [menuIndex, setMenuIndex] = useState(0)
@@ -27,7 +29,10 @@ function App() {
   return (
     <div className="App">
       <Menu changePageIndex={changeMenuIndex}/>
-      <MainView menuIndex = {menuIndex}/>
+      <MainView 
+        menuIndex = {menuIndex}
+        addItem = {(tableName: string, object: object) => {avocadoDatabase.putValue(tableName, object)}}
+      />
     </div>
   );
 }
