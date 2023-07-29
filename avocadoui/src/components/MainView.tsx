@@ -1,14 +1,20 @@
 import '../css/MainView.css'
+import ListItem from '../objects/ListItem';
 import Tasks from './tasks/Tasks';
 
-function MainView({menuIndex, addItem} : { menuIndex: number, addItem: (tableName: string, object: object) => void}) {
-    
+function MainView(
+    {menuIndex, addItem, listItems} : 
+    { menuIndex: number, addItem: (tableName: string, object: object) => void, listItems: () => Promise<any>}
+    ) {
+        console.log("in main menu")
+        console.log(listItems.length)
 
     let pageToShow = <p>Error</p>;
     switch (menuIndex) {
         case 0:
             pageToShow = < Tasks
                 addItem = {addItem}
+                listItems = {listItems}
                 />
             break;
 

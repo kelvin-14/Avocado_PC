@@ -1,8 +1,9 @@
 import { IDBPDatabase, openDB } from 'idb';
 
 class IDXDB {
-    public db: any
-    public dbName: string
+
+    private db: any
+    private dbName: string
  
     constructor(databaseName: string) {
         this.dbName = databaseName
@@ -17,13 +18,14 @@ class IDXDB {
                         }, } )
 
 
-                        
         } catch(error) {
             console.error(error)
         }
     }
 
+
     public async getValue(tableName: string, id: number) {
+        
         const transaction = this.db.transaction(tableName, 'readonly');
         const store = transaction.objectStore(tableName);
         const result = await store.get(id);
@@ -32,20 +34,22 @@ class IDXDB {
     }
 
     public async getAllValue(tableName: string) {
+        console.log(`type of this getall ${this}`)
+        console.log(this.db)
         const tx = this.db.transaction(tableName, 'readonly');
         console.log(tx)
         const store = tx.objectStore(tableName);
         const result = await store.getAll();
         console.log('Get All Data', JSON.stringify(result));
         return result;
+
     }
 
     public async putValue(tableName: string, value: object) {
-        console.log(this)
+        console.log(`type of this put ${this}`)
         const tx = this.db.transaction(tableName, 'readwrite');
         const store = tx.objectStore(tableName);
         const result = await store.put(value);
-        console.log('Put Data ', JSON.stringify(result));
         return result;
     }
 

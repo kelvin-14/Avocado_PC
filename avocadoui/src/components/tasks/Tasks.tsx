@@ -1,9 +1,10 @@
 import '../../css/Tasks.css'
+import ListItem from '../../objects/ListItem';
 import FilterBar from './FilterBar';
 import ListView from './ListView';
 
 function Tasks(
-  {addItem}: {addItem: (tableName: string, object: object) => void}
+  {addItem, listItems}: {addItem: (tableName: string, object: object) => void, listItems: () => Promise<any>}
 ) {
 
   return (
@@ -11,6 +12,7 @@ function Tasks(
         <FilterBar catgoryName = "some category"/>
         <ListView
           addItem = {addItem}
+          listItems = {listItems}
         />
     </div>
   );
