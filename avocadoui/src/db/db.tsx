@@ -13,10 +13,11 @@ class IDXDB {
         try {
             console.log("creating tables")
             this.db = await openDB(this.dbName, 1, { upgrade(db: IDBPDatabase) {
-                            db.createObjectStore('tasks', { keyPath: 'id' })
+                            db.createObjectStore('tasks', { autoIncrement: true, keyPath: 'id' })
                         }, } )
 
 
+                        
         } catch(error) {
             console.error(error)
         }

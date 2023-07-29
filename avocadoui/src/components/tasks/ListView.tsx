@@ -1,16 +1,23 @@
 import '../../css/ListView.css'
+import { useState } from 'react'
 
 function ListView(
   {addItem}: {addItem: (tableName: string, object: object) => void }
 ) {
 
+  const [inputString, setInputString] = useState("")
+
+  const updateInputString = (changeHandler: React.ChangeEvent<HTMLInputElement>) => {
+    const data = changeHandler.target.value
+    setInputString(data)
+    console.log(inputString)
+  }
+
   const addTaskOnEnter = (
     event: React.KeyboardEvent<HTMLInputElement>
   ) => {
-    console.log(`user pressed ${event.key}`)
-    if(event.key === 'Enter') {
-      console.log("Enter was pressed")
-      addItem('tasks', {id: 3, title: "dummy task"})
+    if(event.key === 'Enter' && inputString != '') {
+      addItem('tasks', {title: inputString})
     }
     
   }
@@ -20,6 +27,7 @@ function ListView(
         <input 
           placeholder='Add an item'
           onKeyDown={addTaskOnEnter}
+          onChange={updateInputString}
         />
     </div>
   );

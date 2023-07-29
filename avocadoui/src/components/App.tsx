@@ -4,15 +4,11 @@ import MainView from './MainView';
 import '../css/App.css'
 import IDXDB from '../db/db';
 
-
-
 function App() {
   const avocadoDatabase = new IDXDB("AvocadoDatabase")
   useEffect(() => {
     const run = async () => {
       await avocadoDatabase.createTable("tasks")
-      await avocadoDatabase.putValue("tasks", {id: 1, title: "some task"}) 
-      await avocadoDatabase.putValue("tasks", {id: 2, title: "some task"}) 
     }
     run()
     
