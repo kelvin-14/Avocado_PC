@@ -1,27 +1,22 @@
-// import { IDBPDatabase, openDB } from 'idb';
+import { IDBPDatabase, openDB } from 'idb';
 
 class IDXDB {
-    private indexedDB: IDBFactory
     private db: any
     private dbName: string
 
-    constructor(idxDB: IDBFactory, databaseName: string) {
-        this.indexedDB = idxDB
+    constructor(databaseName: string) {
         this.dbName = databaseName
     }
     
     // creating the tables in our current db
-    public async createObjectStore(tableNames: string[]) {
+    public async createTable(tableName: string) {
         try {
-            const request = await this.indexedDB.open(this.dbName)
-            this.db = request.result
+            console.log("creating tables")
+            this.db = await openDB(this.dbName, 1, { upgrade(dbs: IDBPDatabase) {
+                            dbs.createObjectStore('tasks', { keyPath: 'id' })
+                        }, } )
 
-            for (const tableName of tableNames) {
-                this.db.createObjectStore(tableName, { autoIncrement: true, keyPath: "id" })
-            }
 
-            // create the posible queries
-            // tasksTable.createIndex("title", ["title"], { unique: false });
         } catch(error) {
             console.error(error)
         }
@@ -37,6 +32,7 @@ class IDXDB {
 
     public async getAllValue(tableName: string) {
         const tx = this.db.transaction(tableName, 'readonly');
+        console.log(tx)
         const store = tx.objectStore(tableName);
         const result = await store.getAll();
         console.log('Get All Data', JSON.stringify(result));
@@ -51,6 +47,7 @@ class IDXDB {
         return result;
     }
 
+
     public async deleteValue(tableName: string, id: number) {
         const tx = this.db.transaction(tableName, 'readwrite');
         const store = tx.objectStore(tableName);
@@ -63,7 +60,22 @@ class IDXDB {
         console.log('Deleted Data', id);
         return id;
     }
+
+    public async putSampleData() {
+        const item1: object = {
+            id: 1, 
+            title: "task 1"
+        }
+
+        const sample: object[] = [
+            item1
+        ]
+
+        for (const item of sample) {
+            this.putValue("tasks", item)
+        }
+    }
 }
 
-export default IDXDB
+export default IDXDB;
 
