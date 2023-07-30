@@ -9,13 +9,17 @@ import ListItem from '../objects/ListItem';
 
 const avocadoDatabase = new IDXDB("AvocadoDatabase")
 
-avocadoDatabase.createTable("tasks")
+
 
 function App() {
+  const [list, setList] = useState<ListItem[]>([])
+
   useEffect(() => {
     const run = async () => {
+      await avocadoDatabase.createTable("tasks")
       await avocadoDatabase.putValue("tasks", {id: 1, title: "some task"}) 
       await avocadoDatabase.putValue("tasks", {id: 2, title: "some task"}) 
+      updateList()
     }
     run()
     
@@ -30,6 +34,11 @@ function App() {
     console.log(menuIndex)
   }
 
+  const updateList = async() => {
+    const data = await avocadoDatabase.getAllValue('tasks')
+    setList(data)
+  }
+
 
 
   return (
@@ -37,8 +46,8 @@ function App() {
       <Menu changePageIndex={changeMenuIndex}/>
       <MainView 
         menuIndex = {menuIndex}
-        addItem = {(tableName: string, object: object) => {avocadoDatabase.putValue(tableName, object)}}
-        listItems = { () => {return avocadoDatabase.getAllValue('tasks')} }
+        addItem = {(tableName: string, object: object) => {avocadoDatabase.putValue(tableName, object); updateList()}}
+        listItems = { () => (list) }
       />
     </div>
   );

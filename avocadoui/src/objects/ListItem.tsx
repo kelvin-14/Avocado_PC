@@ -1,4 +1,5 @@
 class ListItem {
+    id: number | null = null
     title: string
     dueDate: number | null = null
 

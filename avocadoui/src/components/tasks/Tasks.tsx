@@ -4,7 +4,7 @@ import FilterBar from './FilterBar';
 import ListView from './ListView';
 
 function Tasks(
-  {addItem, listItems}: {addItem: (tableName: string, object: object) => void, listItems: () => Promise<any>}
+  {addItem, listItems}: {addItem: (tableName: string, object: object) => void, listItems: () => ListItem[]}
 ) {
 
   return (

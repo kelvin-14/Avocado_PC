@@ -3,16 +3,14 @@ import { useEffect, useState } from 'react'
 import ListItem from '../../objects/ListItem'
 
 function ListView(
-  {addItem, listItems}: {addItem: (tableName: string, object: object) => void , listItems: () => Promise<any>}
+  {addItem, listItems}: {addItem: (tableName: string, object: object) => void , listItems: () => ListItem[]}
 ) {
-  var [items, setItems] = useState<ListItem[]>([])
+  const [list, setList] = useState<ListItem[]>([])
+
   useEffect(() => {
-      const getItems = async() => {
-        setItems(await listItems())
-        console.log(`got the items ${items.length}`)
-      }
-      getItems()
-    }
+    const data = listItems().slice(0)
+    setList(listItems)
+  }, []
   )
 
   const [inputString, setInputString] = useState("")
@@ -23,11 +21,11 @@ function ListView(
     console.log(inputString)
   }
 
-  const addTaskOnEnter = (
+  const addTaskOnEnter =  async(
     event: React.KeyboardEvent<HTMLInputElement>
   ) => {
     if(event.key === 'Enter' && inputString != '') {
-      addItem('tasks', {title: inputString})
+      await addItem('tasks', {title: inputString})
     }
     
   }
@@ -41,12 +39,16 @@ function ListView(
           onChange={updateInputString}
         />
 
-        <ul>
-          <li>some item here</li>
         {
-        items.map(item => <li>{item.title}</li>)} 
+          listItems().map(listItem => {
+            return(
+              <div key = {listItem.id}>
+                    {listItem.title}
+              </div>
+            )
+          })
+        }
 
-        </ul>
         
 
     </div>

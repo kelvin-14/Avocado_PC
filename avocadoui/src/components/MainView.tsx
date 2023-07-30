@@ -1,13 +1,17 @@
+import { useEffect } from 'react';
 import '../css/MainView.css'
 import ListItem from '../objects/ListItem';
 import Tasks from './tasks/Tasks';
 
 function MainView(
     {menuIndex, addItem, listItems} : 
-    { menuIndex: number, addItem: (tableName: string, object: object) => void, listItems: () => Promise<any>}
+    { menuIndex: number, addItem: (tableName: string, object: object) => void, listItems: () => ListItem[]}
     ) {
+        
+    useEffect(() => {
         console.log("in main menu")
         console.log(listItems.length)
+    })
 
     let pageToShow = <p>Error</p>;
     switch (menuIndex) {
