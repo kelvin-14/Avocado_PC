@@ -1,20 +1,14 @@
 import '../../css/ListView.css'
 import { useEffect, useState } from 'react'
-import ListItem from '../../objects/ListItem'
+import Task from '../../objects/Task'
+import TaskListItem from './TaskListItem'
 
 function ListView(
-  {addItem, listItems}: {addItem: (tableName: string, object: object) => void , listItems: () => ListItem[]}
+  {addItem, tasks}: {addItem: (tableName: string, object: object) => void , tasks: () => Task[]}
 ) {
-  const [list, setList] = useState<ListItem[]>([])
-
-  useEffect(() => {
-    const data = listItems().slice(0)
-    setList(listItems)
-  }, []
-  )
-
+  const [list, setList] = useState<Task[]>([])
   const [inputString, setInputString] = useState("")
-
+  
   const updateInputString = (changeHandler: React.ChangeEvent<HTMLInputElement>) => {
     const data = changeHandler.target.value
     setInputString(data)
@@ -25,26 +19,34 @@ function ListView(
     event: React.KeyboardEvent<HTMLInputElement>
   ) => {
     if(event.key === 'Enter' && inputString != '') {
-      await addItem('tasks', {title: inputString})
+      await addItem('task', {title: inputString})
     }
     
   }
 
-  const litems = [new ListItem("dfdsfsd"), new ListItem("234324")]
+  useEffect(() => {
+    const data = tasks().slice(0)
+    setList(tasks)
+  }, []
+  )
+
   return (
     <div className="ListView">
+
+      <div className='addTaskDiv'>
         <input 
+          className='addTaskInput'
           placeholder='Add an item'
           onKeyDown={addTaskOnEnter}
           onChange={updateInputString}
         />
+      </div>
+        
 
         {
-          listItems().map(listItem => {
+          tasks().map(task => {
             return(
-              <div key = {listItem.id}>
-                    {listItem.title}
-              </div>
+              <TaskListItem key = {task.id} id = {task.id} title = {task.title}/>
             )
           })
         }

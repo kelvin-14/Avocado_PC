@@ -1,13 +1,11 @@
 .Menu {
     width: fit-content;
     height: 100vh;
-    background-color: yellow;
     margin: 0px;
     padding: 0px;
 }
 
 ul {
-    background-color: bisque;
     padding: 0;
 }
 

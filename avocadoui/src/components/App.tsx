@@ -3,51 +3,51 @@ import Menu from './Menu';
 import MainView from './MainView';
 import '../css/App.css'
 import IDXDB from '../db/db';
-import ListItem from '../objects/ListItem';
-
-
+import Task from '../objects/Task';
+import Category from '../objects/Category';
 
 const avocadoDatabase = new IDXDB("AvocadoDatabase")
 
-
+const createTables = async() => {
+  await avocadoDatabase.createTable(["task", "category"])
+}
 
 function App() {
-  const [list, setList] = useState<ListItem[]>([])
-
-  useEffect(() => {
-    const run = async () => {
-      await avocadoDatabase.createTable("tasks")
-      await avocadoDatabase.putValue("tasks", {id: 1, title: "some task"}) 
-      await avocadoDatabase.putValue("tasks", {id: 2, title: "some task"}) 
-      updateList()
-    }
-    run()
-    
-  }, [])
-
   const [menuIndex, setMenuIndex] = useState(0)
-  
-
+  const [taskList, setTaskList] = useState<Task[]>([])
+  const [categoryList, setCategoryList] = useState<Category[]>([])
 
   const changeMenuIndex = (newIndex: number) => {
     setMenuIndex(newIndex)
     console.log(menuIndex)
   }
 
-  const updateList = async() => {
-    const data = await avocadoDatabase.getAllValue('tasks')
-    setList(data)
+  const updateTaskList = async() => {
+    const data = await avocadoDatabase.getAllValue('task')
+    setTaskList(data)
   }
 
+  const updateCategoryList = async() => {
+    const data = await avocadoDatabase.getAllValue('category')
+    setCategoryList(data)
+  }
 
+  useEffect(() => {
+    const run = async () => {
+      await createTables()
+      await updateTaskList()
+      await updateCategoryList()
+    }
+    run()
+  }, [])
 
   return (
     <div className="App">
       <Menu changePageIndex={changeMenuIndex}/>
       <MainView 
         menuIndex = {menuIndex}
-        addItem = {(tableName: string, object: object) => {avocadoDatabase.putValue(tableName, object); updateList()}}
-        listItems = { () => (list) }
+        addTask = {(tableName: string, object: object) => {avocadoDatabase.putValue(tableName, object); updateTaskList()}}
+        tasks = { () => (taskList) }
       />
     </div>
   );

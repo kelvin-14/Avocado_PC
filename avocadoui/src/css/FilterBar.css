@@ -1,7 +1,6 @@
 .FilterBar {
     height: 100vh;
     width: fit-content;
-    background-color: blue;
     overflow-y:scroll;
 }
 

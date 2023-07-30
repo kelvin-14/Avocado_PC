@@ -1,10 +1,10 @@
 import '../../css/Tasks.css'
-import ListItem from '../../objects/ListItem';
+import Task from '../../objects/Task';
 import FilterBar from './FilterBar';
 import ListView from './ListView';
 
 function Tasks(
-  {addItem, listItems}: {addItem: (tableName: string, object: object) => void, listItems: () => ListItem[]}
+  {addItem, tasks}: {addItem: (tableName: string, object: object) => void, tasks: () => Task[]}
 ) {
 
   return (
@@ -12,7 +12,7 @@ function Tasks(
         <FilterBar catgoryName = "some category"/>
         <ListView
           addItem = {addItem}
-          listItems = {listItems}
+          tasks = {tasks}
         />
     </div>
   );

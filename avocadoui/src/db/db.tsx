@@ -10,12 +10,25 @@ class IDXDB {
     }
     
     // creating the tables in our current db
-    public async createTable(tableName: string) {
+    public async createTable(tableNames: string[]) {
         try {
             console.log("creating tables")
-            this.db = await openDB(this.dbName, 1, { upgrade(db: IDBPDatabase) {
-                            db.createObjectStore('tasks', { autoIncrement: true, keyPath: 'id' })
-                        }, } )
+            this.db = await openDB(
+                this.dbName, 
+                1, 
+                { 
+                    upgrade(db: IDBPDatabase) {
+                        for(const name of tableNames) {
+                            if (db.objectStoreNames.contains(name)) {
+                                continue;
+                            }
+                            db.createObjectStore(`${name}`, { autoIncrement: true, keyPath: 'id' })
+                        }
+                    } 
+                } 
+            )
+
+            
 
 
         } catch(error) {

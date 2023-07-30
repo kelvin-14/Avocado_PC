@@ -7,28 +7,7 @@ function FilterBar(props: any) {
   return (
     <div className="FilterBar">
         <ul className = "filterTopBarList">
-            <CategoryTab categoryName = "some category"/>
-            <CategoryTab categoryName = "some category"/>
-            <CategoryTab categoryName = "some category"/>
-            <CategoryTab categoryName = "some category"/>
-            <CategoryTab categoryName = "some category"/>
-            <CategoryTab categoryName = "some category"/>
-            <CategoryTab categoryName = "some category"/>
-            <CategoryTab categoryName = "some category"/>
-            <CategoryTab categoryName = "some category"/>
-            <CategoryTab categoryName = "some category"/>
-            <CategoryTab categoryName = "some category"/>
-            <CategoryTab categoryName = "some category"/>
-            <CategoryTab categoryName = "some category"/>
-            <CategoryTab categoryName = "some category"/>
-            <CategoryTab categoryName = "some category"/>
-            <CategoryTab categoryName = "some category"/>
-            <CategoryTab categoryName = "some category"/>
-            <CategoryTab categoryName = "some category"/>
-            <CategoryTab categoryName = "some category"/>
-            <CategoryTab categoryName = "some category"/>
-            <CategoryTab categoryName = "some category"/>
-            <CategoryTab categoryName = "some category"/>
+            <CategoryTab categoryName = "All Tasks"/>
         </ul>
     </div>
   );

@@ -1,24 +1,19 @@
 import { useEffect } from 'react';
 import '../css/MainView.css'
-import ListItem from '../objects/ListItem';
 import Tasks from './tasks/Tasks';
+import Task from '../objects/Task';
 
 function MainView(
-    {menuIndex, addItem, listItems} : 
-    { menuIndex: number, addItem: (tableName: string, object: object) => void, listItems: () => ListItem[]}
+    {menuIndex, addTask, tasks} : 
+    { menuIndex: number, addTask: (tableName: string, object: object) => void, tasks: () => Task[]}
     ) {
         
-    useEffect(() => {
-        console.log("in main menu")
-        console.log(listItems.length)
-    })
-
     let pageToShow = <p>Error</p>;
     switch (menuIndex) {
         case 0:
             pageToShow = < Tasks
-                addItem = {addItem}
-                listItems = {listItems}
+                addItem = {addTask}
+                tasks = {tasks}
                 />
             break;
 
