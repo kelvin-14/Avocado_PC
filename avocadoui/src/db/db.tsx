@@ -60,7 +60,7 @@ class IDXDB {
     }
 
     public async putValue(tableName: string, value: object) {
-        console.log(`type of this put ${this}`)
+        console.log(`type of this put ${value}`)
         const tx = this.db.transaction(tableName, 'readwrite');
         const store = tx.objectStore(tableName);
         const result = await store.put(value);

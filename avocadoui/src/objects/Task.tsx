@@ -1,5 +1,5 @@
 class Task {
-    id: number = 0
+    id: number | null = null
     title: string
     dueDate: number | null = null
     completed: boolean = false

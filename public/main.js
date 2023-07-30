@@ -18,9 +18,9 @@ function createWindow() {
         }
     });
     
-    if(isDev === 1) {
-        win.webContents.openDevTools();
-    }
+    // if(isDev === 1) {
+    //     win.webContents.openDevTools();
+    // }
 
     win.loadURL(startUrl);
     win.setMenu(null)

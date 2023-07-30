@@ -20,7 +20,9 @@ function ListView(
     event: React.KeyboardEvent<HTMLInputElement>
   ) => {
     if(event.key === 'Enter' && inputString != '') {
-      await addItem('task', {title: inputString})
+      const taskToAdd = new Task(inputString)
+      taskToAdd.id = Math.floor(Date.now())
+      await addItem('task', taskToAdd)
       setInputString("")
     }
     
