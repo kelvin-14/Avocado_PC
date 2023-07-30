@@ -48,6 +48,7 @@ function App() {
         menuIndex = {menuIndex}
         addTask = {(tableName: string, object: object) => {avocadoDatabase.putValue(tableName, object); updateTaskList()}}
         tasks = { () => (taskList) }
+        toggleCompleted = {(task: Task) => {avocadoDatabase.toggleTaskCompleted(task); updateTaskList()}}
       />
     </div>
   );

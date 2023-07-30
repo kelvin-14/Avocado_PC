@@ -4,7 +4,8 @@ import Task from '../../objects/Task'
 import TaskListItem from './TaskListItem'
 
 function ListView(
-  {addItem, tasks}: {addItem: (tableName: string, object: object) => void , tasks: () => Task[]}
+  {addItem, tasks, toggleCompleted}:
+  {addItem: (tableName: string, object: object) => void , tasks: () => Task[], toggleCompleted: (task: Task) => void}
 ) {
   const [list, setList] = useState<Task[]>([])
   const [inputString, setInputString] = useState("")
@@ -46,7 +47,7 @@ function ListView(
         {
           tasks().map(task => {
             return(
-              <TaskListItem key = {task.id} id = {task.id} title = {task.title}/>
+              <TaskListItem key = {task.id} task = {task} toggleCompleted = {toggleCompleted}/>
             )
           })
         }

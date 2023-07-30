@@ -2,10 +2,11 @@ import { useEffect } from 'react';
 import '../css/MainView.css'
 import Tasks from './tasks/Tasks';
 import Task from '../objects/Task';
+import Completed from './completed/Completed';
 
 function MainView(
-    {menuIndex, addTask, tasks} : 
-    { menuIndex: number, addTask: (tableName: string, object: object) => void, tasks: () => Task[]}
+    {menuIndex, addTask, tasks, toggleCompleted} : 
+    { menuIndex: number, addTask: (tableName: string, object: object) => void, tasks: () => Task[], toggleCompleted: (task: Task) => void}
     ) {
         
     let pageToShow = <p>Error</p>;
@@ -14,11 +15,13 @@ function MainView(
             pageToShow = < Tasks
                 addItem = {addTask}
                 tasks = {tasks}
+                toggleCompleted = {toggleCompleted}
                 />
             break;
 
         case 1:
-            pageToShow = <p>Completed</p>
+            const completedTasks = tasks().filter(it => it.completed === true)
+            pageToShow = <Completed completedTasks={completedTasks} toggleCompleted={toggleCompleted}/>
             break;
 
         case 2:

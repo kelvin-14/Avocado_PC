@@ -1,4 +1,5 @@
 import { IDBPDatabase, openDB } from 'idb';
+import Task from '../objects/Task';
 
 class IDXDB {
 
@@ -78,6 +79,13 @@ class IDXDB {
         await store.delete(id);
         console.log('Deleted Data', id);
         return id;
+    }
+
+
+    // SPECIFIC FUNCTIONS: depending on the CRUD ones above
+    public async toggleTaskCompleted(task: Task) {
+        task.completed = !task.completed
+        await this.putValue('task', task)
     }
 }
 

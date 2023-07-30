@@ -4,7 +4,8 @@ import FilterBar from './FilterBar';
 import ListView from './ListView';
 
 function Tasks(
-  {addItem, tasks}: {addItem: (tableName: string, object: object) => void, tasks: () => Task[]}
+  {addItem, tasks, toggleCompleted}: 
+  {addItem: (tableName: string, object: object) => void, tasks: () => Task[], toggleCompleted: (task: Task) => void}
 ) {
 
   return (
@@ -13,6 +14,7 @@ function Tasks(
         <ListView
           addItem = {addItem}
           tasks = {tasks}
+          toggleCompleted = {toggleCompleted}
         />
     </div>
   );

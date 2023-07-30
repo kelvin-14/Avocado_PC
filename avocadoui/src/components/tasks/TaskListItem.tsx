@@ -2,12 +2,12 @@ import { useEffect, useState } from 'react';
 import Task from '../../objects/Task';
 
 function TaskListItem(
-  {id,title}: {id: number, title: string}
+  {task, toggleCompleted}: {task: Task, toggleCompleted: (task: Task) => void}
 ) {
   return (
     <div className="TaskListItem">
-      <input type="checkbox"/>
-      <label> {title} </label><br></br>
+      <input type="checkbox" onChange={() => toggleCompleted(task)} checked={task.completed === true}/>
+      <label> {task.title} </label><br></br>
     </div>
   );
 }
