@@ -21,6 +21,7 @@ function ListView(
   ) => {
     if(event.key === 'Enter' && inputString != '') {
       await addItem('task', {title: inputString})
+      setInputString("")
     }
     
   }
@@ -40,6 +41,7 @@ function ListView(
           placeholder='Add an item'
           onKeyDown={addTaskOnEnter}
           onChange={updateInputString}
+          value={inputString}
         />
       </div>
         

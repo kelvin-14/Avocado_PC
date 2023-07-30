@@ -12,9 +12,10 @@ function MainView(
     let pageToShow = <p>Error</p>;
     switch (menuIndex) {
         case 0:
+            const notCompletedTasks = tasks().filter(it => it.completed === false)
             pageToShow = < Tasks
                 addItem = {addTask}
-                tasks = {tasks}
+                tasks = {() => notCompletedTasks}
                 toggleCompleted = {toggleCompleted}
                 />
             break;
