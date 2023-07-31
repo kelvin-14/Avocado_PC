@@ -1,20 +1,15 @@
 .Menu {
-    width: fit-content;
+    width: 250px;
     height: 100vh;
     margin: 0px;
-    padding: 0px;
+    padding-top: 5px;
 }
 
 ul {
     padding: 0;
+    margin-top: 0;
 }
 
 button {
     width: 100%;
-    padding-left: 10px;
-    padding-right: 40px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    text-align: start;
-    margin-bottom: 0px;
 }

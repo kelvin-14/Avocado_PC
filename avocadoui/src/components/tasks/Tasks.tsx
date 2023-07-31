@@ -16,6 +16,7 @@ function Tasks(
           tasks = {tasks}
           toggleCompleted = {toggleCompleted}
         />
+        <FilterBar catgoryName = "some category"/>
     </div>
   );
 }

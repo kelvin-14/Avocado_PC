@@ -4,20 +4,23 @@
     vertical-align: middle;
 }
 
-.MenuTab button:focus {
+.menuButton:focus {
     color: var(--button);
     border-left: 2px solid var(--button);
-    padding-left: 8px; /* this counteracts the 2px push to the right that the border caused. so MenuTab padding is changed from 10 t0 8**/
+    padding-left: 0px; /* this counteracts the 2px push to the right that the border caused**/
 }
 
-button {
+.menuButton {
+    padding-left: 2px;
     display: flex;
     flex-direction: row;
     background: var(--background);
     color: var(--text);
-    width: max-content;
+    width: 100%;
     border: 10px green;
     align-items: center;
+    
+
 }
 
 .menuIcon {

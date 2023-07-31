@@ -1,7 +1,9 @@
 .FilterBar {
     height: 100vh;
-    width: max-content;
-    overflow-y:scroll;
+    width: 250px;
+    overflow-y:auto;
+    background-color: var(--surface);
+    padding: 20px 40px 0px 20px;
 }
 
 .filterTopBarList {

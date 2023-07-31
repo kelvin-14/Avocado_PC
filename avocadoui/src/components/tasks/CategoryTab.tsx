@@ -4,7 +4,7 @@ import '../../css/CategoryTab.css'
 function CategoryTab(props: any) {
   return (
     <div className="CategoryTab">
-        <button>
+        <button className= "CategoryButton">
             {props.categoryName}
         </button>
     </div>
