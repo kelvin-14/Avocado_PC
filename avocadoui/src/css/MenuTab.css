@@ -1,8 +1,27 @@
 .MenuTab {
     padding: 5px 10px 0px 10px;
+    display: flex;
+    vertical-align: middle;
 }
+
+.MenuTab button:focus {
+    color: var(--button);
+    border-left: 2px solid var(--button);
+    padding-left: 8px; /* this counteracts the 2px push to the right that the border caused. so MenuTab padding is changed from 10 t0 8**/
+}
+
 button {
-    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
     background: var(--background);
-    color: var(--text)
+    color: var(--text);
+    width: max-content;
+    border: 10px green;
+    align-items: center;
 }
+
+.menuIcon {
+    padding-right: 3px;
+}
+
+

@@ -26,7 +26,7 @@ function MainView(
             break;
 
         case 2:
-            pageToShow = <p>Calendar</p>
+            pageToShow = <p>Settings</p>
             break;
 
         case 3:

@@ -6,8 +6,8 @@ function TaskListItem(
 ) {
   return (
     <div className="TaskListItem">
-      <input style = {{accentColor: task.completed ? 'gray' : 'black'}} type="checkbox" onChange={() => toggleCompleted(task)} checked={task.completed === true}/>
-      <label style = {{color: task.completed ? 'gray' : 'black'}}> {task.title} </label>
+      <input type="checkbox" onChange={() => toggleCompleted(task)} checked={task.completed === true}/>
+      <label > {task.title} </label>
     </div>
   );
 }

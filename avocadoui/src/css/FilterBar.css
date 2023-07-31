@@ -1,11 +1,11 @@
 .FilterBar {
     height: 100vh;
-    width: fit-content;
+    width: max-content;
     overflow-y:scroll;
 }
 
 .filterTopBarList {
     display: flex;
     flex-direction: column;
-    width: fit-content;
+    width: max-content;
 }

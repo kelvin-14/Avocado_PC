@@ -5,9 +5,17 @@ function MenuTab(props: any) {
 
   return (
     <div className="MenuTab">
-        <button 
-            onClick={props.onClick}
-        >{props.name}</button>
+      <button 
+          onClick={props.onClick}
+      >
+        <div className='menuIcon'>
+          <span className="material-symbols-outlined">
+            {props.icon}
+          </span>
+        </div>
+        
+        {props.name}
+      </button>
     </div>
   );
 }

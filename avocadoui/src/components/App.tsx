@@ -56,8 +56,8 @@ const App: React.FC =  () => {
 
   return (
     <div className="App">
-      <input type = "checkbox" onChange = {(e) => toggleTheme(e)}/>
         <Menu 
+          toggleTheme = {toggleTheme}
           changePageIndex={changeMenuIndex}
           menuIndex = {menuIndex}
         />
