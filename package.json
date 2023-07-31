@@ -9,7 +9,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "set ELECTRON_START_URL=http://localhost:3000 && electron .",
     "package": "electron-builder build --mac --win -c.extraMetadata.main=build/electron.js --publish never",
-    "publish": "electron-builder build --mac --win --publish always"
+    "publish": "electron-builder build --mac --win --publish always",
+    "build": "electron-packager ."
   },
   "keywords": [],
   "author": "",
@@ -19,6 +20,7 @@
     "electron-builder": "^24.6.3"
   },
   "dependencies": {
+    "electron-packager": "^17.1.1",
     "electronmon": "^2.0.2"
   }
 }

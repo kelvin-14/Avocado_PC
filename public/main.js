@@ -6,7 +6,7 @@ function createWindow() {
     const isDev = 1
 
     const startUrl = process.env.ELECTRON_START_URL || url.format({
-        pathname: path.join(__dirname, '../index.html'),
+        pathname: '../avocadoui/public/index.html',
         protocol: 'file:',
         slashes: true,
     });

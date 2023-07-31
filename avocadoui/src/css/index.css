@@ -1,3 +1,15 @@
+:root {
+  --background: white;
+  --text: black;
+  --surface: #e8e4e3;
+}
+
+[data-theme = 'dark'] {
+  --background: black;
+  --text: white;
+  --surface: #18076b;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

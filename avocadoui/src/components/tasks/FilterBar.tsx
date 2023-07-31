@@ -7,7 +7,7 @@ function FilterBar(props: any) {
   return (
     <div className="FilterBar">
         <ul className = "filterTopBarList">
-            <CategoryTab categoryName = "All Tasks"/>
+            <CategoryTab categoryName = "All"/>
         </ul>
     </div>
   );

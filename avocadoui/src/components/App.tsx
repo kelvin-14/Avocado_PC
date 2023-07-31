@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import Menu from './Menu';
+import React, { useContext, useEffect, useState } from 'react';
+import Menu from '../components/menu/Menu';
 import MainView from './MainView';
 import '../css/App.css'
 import IDXDB from '../db/db';
@@ -12,7 +12,7 @@ const createTables = async() => {
   await avocadoDatabase.createTable(["task", "category"])
 }
 
-function App() {
+const App: React.FC =  () => {
   const [menuIndex, setMenuIndex] = useState(0)
   const [taskList, setTaskList] = useState<Task[]>([])
   const [categoryList, setCategoryList] = useState<Category[]>([])
@@ -32,6 +32,19 @@ function App() {
     setCategoryList(data)
   }
 
+  const setDarkTheme = () => {
+    document.querySelector("body")?.setAttribute('data-theme', 'dark')
+  }
+
+  const setLightTheme = () => {
+    document.querySelector("body")?.setAttribute('data-theme', 'light')
+  }
+
+  const toggleTheme = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if(event.target.checked) setDarkTheme()
+    else setLightTheme()
+  }
+
   useEffect(() => {
     const run = async () => {
       await createTables()
@@ -43,14 +56,18 @@ function App() {
 
   return (
     <div className="App">
-      <Menu changePageIndex={changeMenuIndex}/>
-      <MainView 
-        menuIndex = {menuIndex}
-        addTask = {(tableName: string, object: object) => {avocadoDatabase.putValue(tableName, object); updateTaskList()}}
-        tasks = { () => (taskList) }
-        toggleCompleted = {(task: Task) => {avocadoDatabase.toggleTaskCompleted(task); updateTaskList()}}
-      />
-    </div>
+      <input type = "checkbox" onChange = {(e) => toggleTheme(e)}/>
+        <Menu 
+          changePageIndex={changeMenuIndex}
+          menuIndex = {menuIndex}
+        />
+        <MainView 
+          menuIndex = {menuIndex}
+          addTask = {(tableName: string, object: object) => {avocadoDatabase.putValue(tableName, object); updateTaskList()}}
+          tasks = { () => (taskList) }
+          toggleCompleted = {(task: Task) => {avocadoDatabase.toggleTaskCompleted(task); updateTaskList()}}
+        />
+        </div>
   );
 }
 
