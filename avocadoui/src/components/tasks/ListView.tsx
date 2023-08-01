@@ -48,8 +48,11 @@ function ListView(
           onChange={updateInputString}
           value={inputString}
         />
-        <div className = 'calendarIcon'><CalendarButton/></div>
-        <TimePickerButton/>
+        <div className = 'calendarIcon'>
+          <CalendarButton/>
+          <TimePickerButton/>
+        </div>
+        
       </div>
         {
         tasks.length === 0 ? 
