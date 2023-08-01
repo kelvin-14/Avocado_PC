@@ -49,8 +49,8 @@ function ListView(
           value={inputString}
         />
         <div className = 'calendarIcon'>
-          <CalendarButton/>
-          <TimePickerButton/>
+          <CalendarButton label = {null}/>
+          <TimePickerButton  label = {null}/>
         </div>
         
       </div>

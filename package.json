@@ -20,7 +20,10 @@
     "electron-builder": "^24.6.3"
   },
   "dependencies": {
+    "@types/react": "^18.2.18",
+    "@types/react-datepicker": "^4.15.0",
     "electron-packager": "^17.1.1",
-    "electronmon": "^2.0.2"
+    "electronmon": "^2.0.2",
+    "react-datepicker": "^4.16.0"
   }
 }

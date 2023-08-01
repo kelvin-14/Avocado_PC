@@ -29,7 +29,7 @@ function MainView(
             break;
 
         case 2:
-            pageToShow = <TimePickerButton/>
+            pageToShow = <p>sdfdsfasd</p>
             break;
 
         case 3:

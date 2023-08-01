@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import '../../css/CalendarButton.css'
 
-const CalendarButton = () => {
+const CalendarButton = ({label}: {label: string | null}) => {
     const [date, setDate] = useState("")
     
     const changeDate = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -19,7 +19,10 @@ const CalendarButton = () => {
             />
             <span className="material-symbols-outlined">
                 calendar_month
-          </span>
+            </span>
+            {
+                label !== null ? <p className = "pickerLabel">{label}</p> : null
+            }
         </button>
         </div>
     );

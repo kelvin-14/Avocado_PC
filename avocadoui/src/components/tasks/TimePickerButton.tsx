@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import '../../css/TimePickerButton.css'
 
-const TimePickerButton = () => {
+const TimePickerButton = ({label}: {label: string | null}) => {
     const [time, setTime] = useState("")
     
     const changeTime = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -19,7 +19,10 @@ const TimePickerButton = () => {
             />
             <span className="material-symbols-outlined">
                 schedule
-          </span>
+            </span>
+            {
+                label !== null ? <p className = "pickerLabel">{label}</p> : null
+            }
         </button>
         </div>
     );

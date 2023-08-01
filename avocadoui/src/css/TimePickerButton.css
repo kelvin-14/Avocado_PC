@@ -1,8 +1,13 @@
 .TimePickerButton {
+    
 }
 
 .timepicker-native {
     position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 .timepicker-native-input {
     position: absolute;
@@ -22,4 +27,11 @@
     padding: 0;
     opacity: 0;
     cursor: pointer;
+}
+.pickerLabel {
+    margin: 0;
+    padding-left: 10px;
+}
+.material-symbols-outlined {
+    font-weight: 300;
 }
