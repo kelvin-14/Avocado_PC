@@ -6,22 +6,22 @@ import Completed from './completed/Completed';
 
 function MainView(
     {menuIndex, addTask, tasks, toggleCompleted} : 
-    { menuIndex: number, addTask: (tableName: string, object: object) => void, tasks: () => Task[], toggleCompleted: (task: Task) => void}
+    { menuIndex: number, addTask: (tableName: string, object: object) => void, tasks: Task[], toggleCompleted: (task: Task) => void}
     ) {
         
     let pageToShow = <p>Error</p>;
     switch (menuIndex) {
         case 0:
-            const notCompletedTasks = tasks().filter(it => it.completed === false)
+            const notCompletedTasks = tasks.filter(it => it.completed === false)
             pageToShow = < Tasks
                 addItem = {addTask}
-                tasks = {() => notCompletedTasks}
+                tasks = {notCompletedTasks}
                 toggleCompleted = {toggleCompleted}
                 />
             break;
 
         case 1:
-            const completedTasks = tasks().filter(it => it.completed === true)
+            const completedTasks = tasks.filter(it => it.completed === true)
             pageToShow = <Completed completedTasks={completedTasks} toggleCompleted={toggleCompleted}/>
             break;
 

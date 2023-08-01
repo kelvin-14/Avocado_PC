@@ -14,7 +14,7 @@ const createTables = async() => {
 
 const App: React.FC =  () => {
   const [menuIndex, setMenuIndex] = useState(0)
-  const [taskList, setTaskList] = useState<Task[]>([])
+  const [tasks, setTasks] = useState<Task[]>([])
   const [categoryList, setCategoryList] = useState<Category[]>([])
 
   const changeMenuIndex = (newIndex: number) => {
@@ -22,9 +22,9 @@ const App: React.FC =  () => {
     console.log(menuIndex)
   }
 
-  const updateTaskList = async() => {
+  const updateTasks = async() => {
     const data = await avocadoDatabase.getAllValue('task')
-    setTaskList(data)
+    setTasks(data)
   }
 
   const updateCategoryList = async() => {
@@ -48,7 +48,7 @@ const App: React.FC =  () => {
   useEffect(() => {
     const run = async () => {
       await createTables()
-      await updateTaskList()
+      await updateTasks()
       await updateCategoryList()
     }
     run()
@@ -63,9 +63,9 @@ const App: React.FC =  () => {
         />
         <MainView 
           menuIndex = {menuIndex}
-          addTask = {(tableName: string, object: object) => {avocadoDatabase.putValue(tableName, object); updateTaskList()}}
-          tasks = { () => (taskList) }
-          toggleCompleted = {(task: Task) => {avocadoDatabase.toggleTaskCompleted(task); updateTaskList()}}
+          addTask = {(tableName: string, object: object) => {avocadoDatabase.putValue(tableName, object); updateTasks()}}
+          tasks = { tasks }
+          toggleCompleted = {(task: Task) => {avocadoDatabase.toggleTaskCompleted(task); updateTasks()}}
         />
         </div>
   );

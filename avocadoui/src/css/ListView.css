@@ -1,16 +1,18 @@
 .ListView {
-    width: 100%;
+    width: 50%;
     height: 100vh;
     padding: 20px;
 }
 
 .addTaskDiv {
     width: 100;
-    background-color: green;
+    padding: 10px; 
 }
 
 .addTaskInput {
     width: 100%;
     box-sizing: border-box;
-    padding: 10px;
+    padding: 13px;
+    border-radius: 25px;
+    border: 1px solid var(--text);
 }

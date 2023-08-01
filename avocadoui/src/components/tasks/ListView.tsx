@@ -2,10 +2,12 @@ import '../../css/ListView.css'
 import { useEffect, useState } from 'react'
 import Task from '../../objects/Task'
 import TaskListItem from './TaskListItem'
+import List from './List'
+import EmptyPage from './EmptyPage'
 
 function ListView(
-  {addItem, tasks, toggleCompleted}:
-  {addItem: (tableName: string, object: object) => void , tasks: () => Task[], toggleCompleted: (task: Task) => void}
+  {addItem, tasks, toggleCompleted, changeFocusedTask}:
+  {addItem: (tableName: string, object: object) => void , tasks: Task[], toggleCompleted: (task: Task) => void, changeFocusedTask: (task: Task) => void}
 ) {
   const [list, setList] = useState<Task[]>([])
   const [inputString, setInputString] = useState("")
@@ -29,14 +31,14 @@ function ListView(
   }
 
   useEffect(() => {
-    const data = tasks().slice(0)
+    const data = tasks.slice(0)
     setList(tasks)
   }, []
   )
 
   return (
     <div className="ListView">
-
+    
       <div className='addTaskDiv'>
         <input 
           className='addTaskInput'
@@ -46,19 +48,17 @@ function ListView(
           value={inputString}
         />
       </div>
-        
-
         {
-          tasks().map(task => {
-            return(
-              <TaskListItem key = {task.id} task = {task} toggleCompleted = {toggleCompleted}/>
-            )
-          })
+        tasks.length === 0 ? 
+          <EmptyPage icon = "post_add" label = '"Rest is a fine medicine" - Thomas Carlyle'/>
+        : 
+          <List 
+            tasks = {tasks}
+            toggleCompleted = {toggleCompleted}
+            changeFocusedTask = {(task: Task) => changeFocusedTask(task)}
+          />
+          
         }
-        
-
-        
-
     </div>
   );
 }

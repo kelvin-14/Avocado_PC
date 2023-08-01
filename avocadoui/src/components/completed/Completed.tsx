@@ -15,6 +15,7 @@ function Completed(
                     <TaskListItem 
                         task={task} 
                         toggleCompleted={toggleCompleted}
+                        changeFocusedTask={() => {}}
                     />
                 )
             })}

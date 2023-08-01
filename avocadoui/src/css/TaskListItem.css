@@ -1,3 +1,13 @@
 .TaskListItem {
-    background-color: red;
+    padding: 10px 5px 5px 5px;
+    display: flex;
+    align-items: center;
+}
+.taskLabel {
+    width: 100%;
+    padding: 0px 10px 0px 10px;
+    margin: 0;
+}
+.taskCheckBox {
+    width: 40px;
 }
