@@ -1,0 +1,26 @@
+.TimePickerButton {
+    background-color: green;
+}
+
+.timepicker-native {
+    position: relative;
+}
+.timepicker-native-input {
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+.timepicker-native-input::-webkit-calendar-picker-indicator {
+    position: absolute;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    cursor: pointer;
+}

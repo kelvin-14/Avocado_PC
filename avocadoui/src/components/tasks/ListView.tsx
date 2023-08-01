@@ -1,9 +1,10 @@
 import '../../css/ListView.css'
 import { useEffect, useState } from 'react'
 import Task from '../../objects/Task'
-import TaskListItem from './TaskListItem'
 import List from './List'
 import EmptyPage from './EmptyPage'
+import CalendarButton from './CalendarButton'
+import TimePickerButton from './TimePickerButton'
 
 function ListView(
   {addItem, tasks, toggleCompleted, changeFocusedTask}:
@@ -47,6 +48,8 @@ function ListView(
           onChange={updateInputString}
           value={inputString}
         />
+        <div className = 'calendarIcon'><CalendarButton/></div>
+        <TimePickerButton/>
       </div>
         {
         tasks.length === 0 ? 

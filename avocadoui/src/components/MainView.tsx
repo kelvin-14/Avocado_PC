@@ -3,6 +3,9 @@ import '../css/MainView.css'
 import Tasks from './tasks/Tasks';
 import Task from '../objects/Task';
 import Completed from './completed/Completed';
+import CalendarTest from './tasks/CalendarTest';
+import CalendarButton from './tasks/CalendarButton';
+import TimePickerButton from './tasks/TimePickerButton';
 
 function MainView(
     {menuIndex, addTask, tasks, toggleCompleted} : 
@@ -26,7 +29,7 @@ function MainView(
             break;
 
         case 2:
-            pageToShow = <p>Settings</p>
+            pageToShow = <TimePickerButton/>
             break;
 
         case 3:
