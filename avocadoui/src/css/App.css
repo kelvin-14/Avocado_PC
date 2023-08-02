@@ -18,6 +18,7 @@
 
 p {
     margin-top: 0;
+    color: var(--text)
 }
 
 button {
@@ -26,4 +27,5 @@ button {
     text-align: start;
     border: none;
     background: none;
+    color: var(--text)
 }

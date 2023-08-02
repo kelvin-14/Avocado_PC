@@ -6,10 +6,16 @@ import Completed from './completed/Completed';
 import CalendarTest from './tasks/CalendarTest';
 import CalendarButton from './tasks/CalendarButton';
 import TimePickerButton from './tasks/TimePickerButton';
+import Settings from './settings/Settings';
 
 function MainView(
-    {menuIndex, addTask, tasks, toggleCompleted} : 
-    { menuIndex: number, addTask: (tableName: string, object: object) => void, tasks: Task[], toggleCompleted: (task: Task) => void}
+    {menuIndex, addTask, tasks, toggleCompleted, toggleTheme, theme} : 
+    { menuIndex: number, 
+      addTask: (tableName: string, object: object) => void, 
+      tasks: Task[], toggleCompleted: (task: Task) => void, 
+      toggleTheme: (e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
+      theme: string
+    }
     ) {
         
     let pageToShow = <p>Error</p>;
@@ -29,7 +35,10 @@ function MainView(
             break;
 
         case 2:
-            pageToShow = <p>sdfdsfasd</p>
+            pageToShow = <Settings
+              toggleTheme = {toggleTheme}
+              theme = {theme}
+              />
             break;
 
         case 3:

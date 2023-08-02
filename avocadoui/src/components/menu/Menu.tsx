@@ -31,9 +31,6 @@ function Menu(props: any) {
               bgColor= {props.menuIndex === 1 ? 'gray' : 'white'}
             />
           </li>
-          <li>
-            <input type = "checkbox" onChange = {(e) => props.toggleTheme(e)}/>
-          </li>
         </ul>
     </div>
   );

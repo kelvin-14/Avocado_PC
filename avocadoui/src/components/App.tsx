@@ -16,6 +16,7 @@ const App: React.FC =  () => {
   const [menuIndex, setMenuIndex] = useState(0)
   const [tasks, setTasks] = useState<Task[]>([])
   const [categoryList, setCategoryList] = useState<Category[]>([])
+  const [theme, setTheme] = useState('light')
 
   const changeMenuIndex = (newIndex: number) => {
     setMenuIndex(newIndex)
@@ -39,9 +40,9 @@ const App: React.FC =  () => {
     document.querySelector("body")?.setAttribute('data-theme', 'light')
   }
 
-  const toggleTheme = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if(event.target.checked) setDarkTheme()
-    else setLightTheme()
+  const toggleTheme = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    if(theme === 'light') {setDarkTheme(); setTheme('dark')}
+    else {setLightTheme(); setTheme('light')}
   }
 
   useEffect(() => {
@@ -56,7 +57,6 @@ const App: React.FC =  () => {
   return (
     <div className="App">
         <Menu 
-          toggleTheme = {toggleTheme}
           changePageIndex={changeMenuIndex}
           menuIndex = {menuIndex}
         />
@@ -65,6 +65,8 @@ const App: React.FC =  () => {
           addTask = {(tableName: string, object: object) => {avocadoDatabase.putValue(tableName, object); updateTasks()}}
           tasks = { tasks }
           toggleCompleted = {(task: Task) => {avocadoDatabase.toggleTaskCompleted(task); updateTasks()}}
+          toggleTheme = {(e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => toggleTheme(e)}
+          theme = {theme}
         />
         </div>
   );
