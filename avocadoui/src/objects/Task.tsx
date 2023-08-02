@@ -2,6 +2,7 @@ class Task {
     id: number | null = null
     title: string
     dueDate: number | null = null
+    timeDue: number | null = null
     completed: boolean = false
 
     constructor(title: string) {

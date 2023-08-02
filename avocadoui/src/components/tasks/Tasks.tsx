@@ -13,6 +13,7 @@ function Tasks(
 
   const changeFocusedTask = (newTask: Task) => {
     setFocusedTask(newTask)
+    console.log(newTask)
   }
 
   return (

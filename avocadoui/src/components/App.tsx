@@ -19,7 +19,6 @@ const App: React.FC =  () => {
 
   const changeMenuIndex = (newIndex: number) => {
     setMenuIndex(newIndex)
-    console.log(menuIndex)
   }
 
   const updateTasks = async() => {

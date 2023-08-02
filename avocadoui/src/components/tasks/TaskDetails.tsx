@@ -7,11 +7,7 @@ import Details from './Details';
 function TaskDetails(
     {focusedTask}: {focusedTask: Task | undefined}
 ) {
-  const [task, setTask] = useState<Task>()
 
-  useEffect(() => {
-    setTask(focusedTask)
-  }) 
 
   return (
     <div className="TaskDetails">

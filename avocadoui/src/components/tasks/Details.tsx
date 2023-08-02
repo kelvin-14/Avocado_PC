@@ -7,25 +7,39 @@ import TimePickerButton from './TimePickerButton';
 function Details(
     {focusedTask}: {focusedTask: Task | undefined}
 ) {
-  const [task, setTask] = useState<Task>()
-  const [title, setTitle] = useState(focusedTask?.title)
 
-  useEffect(() => {
-    setTask(focusedTask)
-  }) 
+  var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
-  const changeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setTitle(e.target.value)
+  const getFormattedDate = (dateLong: number) => {
+    console.log(dateLong)
+    const date = new Date(dateLong)
+    const dayOfTheMonth = date.getDate()
+    const month = date.getMonth()
+    const day = date.getDay()
+    const year = date.getFullYear()
+
+    return days[day] + ", " + months[month] + " " + dayOfTheMonth + ", " + year  
   }
+
+  const getFormattedTime = (timeLong: number) => {
+    const time = new Date(timeLong)
+    const hour = time.getHours()
+    const minute = time.getMinutes()
+    const am_pm = hour <= 12 ? "A.M." : "P.M."
+
+    return hour + ":" + minute + " " + am_pm
+  }
+
 
   return (
     <div className="Details">
-        <input className = "taskTitle"  value={title} onChange={changeTitle}/>
+        <input className = "taskTitle"  value={focusedTask?.title} onChange={()=>{}}/>
         <div className= "DetailItem">
-            <CalendarButton label = {"Date Due"}/>
+            <CalendarButton label = {focusedTask?.dueDate ? getFormattedDate(focusedTask.dueDate) :"Date Due"} setTaskDueDate={()=>{}}/>
         </div>
         <div className= "DetailItem">
-            <TimePickerButton label = {"Time Due"}/>
+            <TimePickerButton label = {focusedTask?.timeDue ? getFormattedTime(focusedTask.timeDue) : "Time Due"} setTaskTimeDue={()=>{}}/>
         </div>
     </div>
   );

@@ -1,12 +1,10 @@
 import { useState } from 'react';
 import '../../css/CalendarButton.css'
 
-const CalendarButton = ({label}: {label: string | null}) => {
-    const [date, setDate] = useState("")
+const CalendarButton = ({label, setTaskDueDate}: {label: string | null, setTaskDueDate: (date: string) => void}) => {
     
     const changeDate = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setDate(e.target.value)
-        console.log(e.target.value)
+        setTaskDueDate(e.target.value)
     } 
 
     return (

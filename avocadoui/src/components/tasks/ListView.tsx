@@ -11,22 +11,38 @@ function ListView(
   {addItem: (tableName: string, object: object) => void , tasks: Task[], toggleCompleted: (task: Task) => void, changeFocusedTask: (task: Task) => void}
 ) {
   const [list, setList] = useState<Task[]>([])
-  const [inputString, setInputString] = useState("")
+  const [taskTitle, setTaskTitle] = useState("")
+  const [taskDueDate, setTaskDueDate] = useState<string|null>(null)
+  const [taskTimeDue, setTaskTimeDue] = useState<string|null>(null)
   
-  const updateInputString = (changeHandler: React.ChangeEvent<HTMLInputElement>) => {
+  
+  const updateTaskTitle = (changeHandler: React.ChangeEvent<HTMLInputElement>) => {
     const data = changeHandler.target.value
-    setInputString(data)
-    console.log(inputString)
+    setTaskTitle(data)
+    console.log(taskTitle)
+  }
+  
+  const updateTaskDueDate = (date: string) => {
+    setTaskDueDate(date)
+    console.log(date)
+  }
+
+  const updateTaskTimeDue = (time: string) => {
+    setTaskTimeDue(time)
   }
 
   const addTaskOnEnter =  async(
     event: React.KeyboardEvent<HTMLInputElement>
   ) => {
-    if(event.key === 'Enter' && inputString != '') {
-      const taskToAdd = new Task(inputString)
+    if(event.key === 'Enter' && taskTitle != '') {
+      const taskToAdd = new Task(taskTitle)
       taskToAdd.id = Math.floor(Date.now())
+      taskToAdd.dueDate = taskDueDate ? Date.parse(taskDueDate) : null;
+      taskToAdd.timeDue = taskTimeDue ? Date.parse(taskDueDate! + " " + taskTimeDue) : null; // TODO: make sure to make time button greyed out and unclickable if date not selected
       await addItem('task', taskToAdd)
-      setInputString("")
+      setTaskTitle("")
+      setTaskDueDate(null)
+      setTaskTimeDue(null)
     }
     
   }
@@ -45,12 +61,12 @@ function ListView(
           className='addTaskInput'
           placeholder='Add an item'
           onKeyDown={addTaskOnEnter}
-          onChange={updateInputString}
-          value={inputString}
+          onChange={updateTaskTitle}
+          value={taskTitle}
         />
         <div className = 'calendarIcon'>
-          <CalendarButton label = {null}/>
-          <TimePickerButton  label = {null}/>
+          <CalendarButton label = {null} setTaskDueDate = {updateTaskDueDate}/>
+          <TimePickerButton  label = {null} setTaskTimeDue = {updateTaskTimeDue}/>
         </div>
         
       </div>

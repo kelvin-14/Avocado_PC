@@ -1,12 +1,11 @@
 import { useState } from 'react';
 import '../../css/TimePickerButton.css'
 
-const TimePickerButton = ({label}: {label: string | null}) => {
+const TimePickerButton = ({label, setTaskTimeDue}: {label: string | null, setTaskTimeDue: (time: string) => void}) => {
     const [time, setTime] = useState("")
     
     const changeTime = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setTime(e.target.value)
-        console.log(e.target.value)
+        setTaskTimeDue(e.target.value)
     } 
 
     return (
