@@ -7,8 +7,8 @@ import CalendarButton from './CalendarButton'
 import TimePickerButton from './TimePickerButton'
 
 function ListView(
-  {addItem, tasks, toggleCompleted, changeFocusedTask}:
-  {addItem: (tableName: string, object: object) => void , tasks: Task[], toggleCompleted: (task: Task) => void, changeFocusedTask: (task: Task) => void}
+  {addItem, tasks, toggleCompleted, changeFocusedTask, closeDetailsDiv, showBar}:
+  {addItem: (tableName: string, object: object) => void , tasks: Task[], toggleCompleted: (task: Task) => void, changeFocusedTask: (task: Task) => void, closeDetailsDiv: () => void, showBar: boolean}
 ) {
   const [list, setList] = useState<Task[]>([])
   const [taskTitle, setTaskTitle] = useState("")
@@ -54,21 +54,27 @@ function ListView(
   )
 
   return (
-    <div className="ListView">
-    
+    <div className="ListView" id = "ListView">
+      
+      
       <div className='addTaskDiv'>
-        <input 
-          className='addTaskInput'
-          placeholder='Add an item'
-          onKeyDown={addTaskOnEnter}
-          onChange={updateTaskTitle}
-          value={taskTitle}
-        />
-        <div className = 'calendarIcon'>
-          <CalendarButton label = {null} setTaskDueDate = {updateTaskDueDate}/>
-          <TimePickerButton  label = {null} setTaskTimeDue = {updateTaskTimeDue}/>
+      {
+        showBar && 
+        <div className = "addTaskInputAndIcon">
+          <input 
+            className='addTaskInput'
+            placeholder='Add an item'
+            onKeyDown={addTaskOnEnter}
+            onChange={updateTaskTitle}
+            value={taskTitle}
+          />
+          <div className = 'calendarIcon'>
+            <CalendarButton label = {null} setTaskDueDate = {updateTaskDueDate}/>
+            <TimePickerButton  label = {null} setTaskTimeDue = {updateTaskTimeDue}/>
+          </div>
         </div>
-        
+      } 
+      
       </div>
         {
         tasks.length === 0 ? 
@@ -78,6 +84,7 @@ function ListView(
             tasks = {tasks}
             toggleCompleted = {toggleCompleted}
             changeFocusedTask = {(task: Task) => changeFocusedTask(task)}
+            closeDetailsDiv = {closeDetailsDiv}
           />
           
         }

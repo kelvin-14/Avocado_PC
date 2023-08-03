@@ -15,7 +15,7 @@ function MenuTab(props: any) {
           </span>
         </div>
         
-        {props.name}
+        <p>{props.name}</p>
       </button>
     </div>
   );

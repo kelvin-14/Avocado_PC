@@ -10,7 +10,7 @@ function Details(
 ) {
 
   return (
-    <div className="Details">
+    <div className="Details" id="Details">
         <input className = "taskTitle"  value={focusedTask?.title} onChange={()=>{}}/>
         <div className= "DetailItem">
             <CalendarButton label = {focusedTask?.dueDate ? getFormattedDate(focusedTask.dueDate) :"Click to set due date"} setTaskDueDate={()=>{}}/>

@@ -10,7 +10,7 @@ function TaskDetails(
 
 
   return (
-    <div className="TaskDetails">
+    <div className="TaskDetails" id = "TaskDetails">
         {
           focusedTask === undefined ?
           <EmptyPage icon = "receipt_long" label = "click a task to view more information about it"/>

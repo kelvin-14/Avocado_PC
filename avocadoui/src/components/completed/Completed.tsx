@@ -16,6 +16,7 @@ function Completed(
                         task={task} 
                         toggleCompleted={toggleCompleted}
                         changeFocusedTask={() => {}}
+                        closeDetailsDiv = {()=>{}}
                     />
                 )
             })}

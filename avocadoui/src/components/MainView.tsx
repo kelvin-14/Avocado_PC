@@ -26,12 +26,18 @@ function MainView(
                 addItem = {addTask}
                 tasks = {notCompletedTasks}
                 toggleCompleted = {toggleCompleted}
+                showBar = {true}
                 />
             break;
 
         case 1:
             const completedTasks = tasks.filter(it => it.completed === true)
-            pageToShow = <Completed completedTasks={completedTasks} toggleCompleted={toggleCompleted}/>
+            pageToShow = < Tasks
+                addItem = {()=> {}}
+                tasks = {completedTasks}
+                toggleCompleted = {toggleCompleted}
+                showBar = {false}
+                />
             break;
 
         case 2:

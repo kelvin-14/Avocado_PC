@@ -2,14 +2,14 @@
   --background: white;
   --text: black;
   --surface: #f9f9f9;
-  --button: #3f37c9
+  --button: #3f37c9;
 }
 
 [data-theme = 'dark'] {
   --background: black;
   --text: white;
-  --surface: #18076b;
-  --button: #3f37c9;
+  --surface: rgba(255,255,255,.2);
+  --button: rgba(255,255,255,.2);
 }
 
 body {
