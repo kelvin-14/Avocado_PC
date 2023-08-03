@@ -1,7 +1,9 @@
 .TaskListItem {
-    padding: 10px 5px 5px 5px;
     display: flex;
     align-items: center;
+    padding-top: 15px;
+    padding-bottom: 0px;
+    margin-bottom: 10px;
 }
 .taskLabel {
     width: 100%;

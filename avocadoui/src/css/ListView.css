@@ -5,26 +5,17 @@
 }
 
 .addTaskDiv {
-    position: relative;
-    display: flex;
-    flex-direction: row;
     width: 100%;
-    padding: 10px; 
-    justify-content: end;
-    align-items: end;
 }
-
 .addTaskInputAndIcon {
     position: relative;
     display: flex;
     flex-direction: row;
     width: 100%;
-    padding: 10px; 
     justify-content: end;
     align-items: end;
-
+    box-sizing: border-box;
 }
-
 .calendarIcon {
     display: flex;
     flex-direction: row;

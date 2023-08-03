@@ -1,14 +1,17 @@
 import '../../css/Settings.css'
+import BigBoldTitle from '../shared/BigBoldTitle';
 
 const Settings =  (
-  {toggleTheme, theme}: 
+  {toggleTheme, theme, title}: 
   {
     toggleTheme: (e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
     theme:string
+    title: string
   }
 ) => {
     return (
       <div className="Settings">
+        <BigBoldTitle name = {title} />
           <button className='dark-mode-button' onClick={(e) => {toggleTheme(e)}}>
             {
               theme === 'dark' ?

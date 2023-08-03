@@ -5,10 +5,17 @@ import List from './List'
 import EmptyPage from './EmptyPage'
 import CalendarButton from './CalendarButton'
 import TimePickerButton from './TimePickerButton'
+import BigBoldTitle from '../shared/BigBoldTitle'
 
 function ListView(
-  {addItem, tasks, toggleCompleted, changeFocusedTask, closeDetailsDiv, showBar}:
-  {addItem: (tableName: string, object: object) => void , tasks: Task[], toggleCompleted: (task: Task) => void, changeFocusedTask: (task: Task) => void, closeDetailsDiv: () => void, showBar: boolean}
+  {addItem, tasks, toggleCompleted, changeFocusedTask, closeDetailsDiv, showBar, title}:
+  {
+    addItem: (tableName: string, object: object) => void, 
+    tasks: Task[], toggleCompleted: (task: Task) => void, 
+    changeFocusedTask: (task: Task) => void, 
+    closeDetailsDiv: () => void, showBar: boolean,
+    title: string
+  }
 ) {
   const [list, setList] = useState<Task[]>([])
   const [taskTitle, setTaskTitle] = useState("")
@@ -56,6 +63,7 @@ function ListView(
   return (
     <div className="ListView" id = "ListView">
       
+      <BigBoldTitle name = {title}/>
       
       <div className='addTaskDiv'>
       {

@@ -1,5 +1,7 @@
 .Settings {
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    padding:20px
 }
 .dark-mode-button {
     display: flex;
@@ -8,6 +10,7 @@
     border: 2px solid var(--text);
     padding: 10px 15px 10px 15px;
     border-radius: 25px;
+    width: fit-content;
 }
 .dark-mode-button p {
     padding: 0px 0px 0px 6px;

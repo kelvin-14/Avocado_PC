@@ -1,9 +1,9 @@
 .App {
-    background-color: var(--background);
+    background-color: var(--surface);
     display: flex;
     flex-direction: row;
     height: 100vh;
-    margin: 0px;
+    margin-bottom: 0px;
     padding: 0px;
     overflow: hidden;
     color: var(--text)

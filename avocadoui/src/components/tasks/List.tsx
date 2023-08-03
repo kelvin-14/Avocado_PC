@@ -1,5 +1,6 @@
 import Task from "../../objects/Task";
 import TaskListItem from "./TaskListItem";
+import '../../css/List.css'
 
 function List(
     {tasks, toggleCompleted, changeFocusedTask, closeDetailsDiv}:
