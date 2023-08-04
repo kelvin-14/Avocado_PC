@@ -3,8 +3,8 @@ import TaskListItem from "./TaskListItem";
 import '../../css/List.css'
 
 function List(
-    {tasks, toggleCompleted, changeFocusedTask, closeDetailsDiv}:
-    {tasks: Task[], toggleCompleted: (task: Task) => void, changeFocusedTask: (task: Task) => void, closeDetailsDiv: ()=>void}
+    {tasks, toggleCompleted, changeFocusedTask}:
+    {tasks: Task[], toggleCompleted: (task: Task) => void, changeFocusedTask: (task: Task) => void}
 ) {
   return (
     <div className="List">
@@ -16,7 +16,6 @@ function List(
                         task = {task} 
                         toggleCompleted = {toggleCompleted} 
                         changeFocusedTask = {() => {changeFocusedTask(task)}}
-                        closeDetailsDiv = {closeDetailsDiv}
                     />
                 )
             })

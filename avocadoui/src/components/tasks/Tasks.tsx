@@ -11,16 +11,27 @@ function Tasks(
   {addItem: (tableName: string, object: object) => void, tasks: Task[], toggleCompleted: (task: Task) => void, showBar: boolean, title: string}
 ) {
   const [focusedTask, setFocusedTask] = useState<Task>()
+  const [divOpened, setDivOpened] = useState(true)
 
   const changeFocusedTask = (newTask: Task) => {
-    setFocusedTask(newTask)
-    console.log(newTask)
+    if(divOpened) {
+      if(newTask === focusedTask) {
+        closeDetailsDiv()
+      } else {
+        setFocusedTask(newTask)
+        openDetailsDiv()
+      }
+    }
   }
   const closeDetailsDiv = () => {
     const div = document.getElementById("TaskDetails")!
-    div.style.width = "100%"
-    div.style.visibility = "visible"
+    div.style.visibility = "hidden"
+  }
 
+  const openDetailsDiv = () => {
+    const div = document.getElementById("TaskDetails")!
+    div.style.width = "50%"
+    div.style.visibility = "visible"
   }
 
   return (
@@ -30,7 +41,6 @@ function Tasks(
           tasks = {tasks}
           toggleCompleted = {toggleCompleted}
           changeFocusedTask = {(task: Task) => changeFocusedTask(task)}
-          closeDetailsDiv = {closeDetailsDiv}
           showBar = {showBar}
           title = {title}
         />

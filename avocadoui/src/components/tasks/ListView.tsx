@@ -8,12 +8,12 @@ import TimePickerButton from './TimePickerButton'
 import BigBoldTitle from '../shared/BigBoldTitle'
 
 function ListView(
-  {addItem, tasks, toggleCompleted, changeFocusedTask, closeDetailsDiv, showBar, title}:
+  {addItem, tasks, toggleCompleted, changeFocusedTask,showBar, title}:
   {
     addItem: (tableName: string, object: object) => void, 
     tasks: Task[], toggleCompleted: (task: Task) => void, 
     changeFocusedTask: (task: Task) => void, 
-    closeDetailsDiv: () => void, showBar: boolean,
+    showBar: boolean,
     title: string
   }
 ) {
@@ -92,7 +92,6 @@ function ListView(
             tasks = {tasks}
             toggleCompleted = {toggleCompleted}
             changeFocusedTask = {(task: Task) => changeFocusedTask(task)}
-            closeDetailsDiv = {closeDetailsDiv}
           />
           
         }
