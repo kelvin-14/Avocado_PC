@@ -1,5 +1,9 @@
 import '../css/TitleBar.css'
 
+const close = () => {
+
+}
+
 const TitleBar =  () => {
     return (
       <div className="TitleBar">

@@ -1,11 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
-import Menu from '../components/menu/Menu';
+import Menu from './menu/Menu';
 import MainView from './MainView';
 import '../css/App.css'
 import IDXDB from '../db/db';
 import Task from '../objects/Task';
 import Category from '../objects/Category';
-import Draggable, {DraggableCore} from "react-draggable";
 import TitleBar from './TitleBar';
 
 const avocadoDatabase = new IDXDB("AvocadoDatabase")

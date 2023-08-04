@@ -6,6 +6,7 @@ function createWindow() {
     const isDev = 1
 
     const startUrl = 'http://localhost:3000' || url.format({
+        
         pathname: '../avocadoui/public/index.html',
         protocol: 'file:',
         slashes: true,
