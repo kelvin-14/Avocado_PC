@@ -11,5 +11,6 @@
     margin: 0;
 }
 .taskCheckBox {
-    width: 40px;
+    border-radius: 10px;
+    background-color: red;
 }

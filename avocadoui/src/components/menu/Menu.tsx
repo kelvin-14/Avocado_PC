@@ -12,7 +12,8 @@ function Menu(props: any) {
               icon = 'check_circle'
               name= 'Tasks' 
               onClick= {() => props.changePageIndex(0)}
-              bgColor= {props.menuIndex === 0 ? 'gray' : 'white'}
+              menuIndex = {props.menuIndex}
+              thisIndex = {0}
             />
           </li>
           <li>
@@ -20,7 +21,8 @@ function Menu(props: any) {
               icon = 'done'
               name= 'Completed' 
               onClick= {() => props.changePageIndex(1)}
-              bgColor= {props.menuIndex === 1 ? 'gray' : 'white'}
+              menuIndex = {props.menuIndex}
+              thisIndex = {1}
             />
           </li>
           <li>
@@ -28,7 +30,8 @@ function Menu(props: any) {
               icon = 'settings'
               name= 'Settings' 
               onClick= {() => props.changePageIndex(2)}
-              bgColor= {props.menuIndex === 1 ? 'gray' : 'white'}
+              menuIndex = {props.menuIndex}
+              thisIndex = {2}
             />
           </li>
         </ul>

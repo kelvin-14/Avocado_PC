@@ -3,7 +3,7 @@
     height: 100vh;
     margin: 0px;
     padding-top: 5px;
-    background-color: var(--surface);
+    background-color: var(--background);
 }
 
 ul {

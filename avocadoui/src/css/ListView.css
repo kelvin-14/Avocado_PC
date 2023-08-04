@@ -33,10 +33,11 @@
     border-radius: 25px;
     border: none;
     background-color: var(--surface);
+    color: var(--text)
 }
 
 .addTaskInput:focus {
     border: none;
-    outline: 1px solid var(--button);
+    outline: 1px solid var(--surface);
     background-color: var(--background);
 }

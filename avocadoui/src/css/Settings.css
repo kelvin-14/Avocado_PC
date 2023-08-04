@@ -9,7 +9,7 @@
     align-items: center;
     border: 2px solid var(--text);
     padding: 10px 15px 10px 15px;
-    border-radius: 25px;
+    border-radius: 50px;
     width: fit-content;
 }
 .dark-mode-button p {

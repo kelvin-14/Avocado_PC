@@ -5,29 +5,19 @@
     width: 180px;
 }
 
-.menuButton:focus {
-    color: var(--button);
-    border-left: 2px solid var(--button);
-    padding-left: 0px; /* this counteracts the 2px push to the right that the border caused**/
-    align-items: center;
-    background-color: var(--surface);
-}
-
 .menuButton {
-    padding-left: 2px;
     display: flex;
     flex-direction: row;
     color: var(--button);
     width: 100%;
     border: 10px green;
     align-items: center;
-    border-top-right-radius: 25px;
-    border-bottom-right-radius: 25px;
+    border-radius: 50px;
 }
 
 .menuIcon {
-    padding-left: 15px;
-    padding-right: 10px;
+    padding-left: 0px;
+    padding-right: 7px;
 }
 
 .menuButton p {
