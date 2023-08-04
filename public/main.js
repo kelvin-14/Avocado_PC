@@ -5,7 +5,7 @@ function createWindow() {
 
     const isDev = 1
 
-    const startUrl = process.env.ELECTRON_START_URL || url.format({
+    const startUrl = 'http://localhost:3000' || url.format({
         pathname: '../avocadoui/public/index.html',
         protocol: 'file:',
         slashes: true,
@@ -15,6 +15,11 @@ function createWindow() {
         height: 700,
         webPreferences: {
             nodeIntegration: true
+        },
+        titleBarStyle: 'hidden',
+        titleBarOverlay: {
+            color: '',
+            symbolColor:''
         }
     });
     

@@ -56,6 +56,8 @@ const App: React.FC =  () => {
 
   return (
     <div className="App">
+      <div className='AppBar'></div>
+      <div className = "AppContent">
         <Menu 
           changePageIndex={changeMenuIndex}
           menuIndex = {menuIndex}
@@ -68,6 +70,8 @@ const App: React.FC =  () => {
           toggleTheme = {(e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => toggleTheme(e)}
           theme = {theme}
         />
+      </div>
+        
         </div>
   );
 }
