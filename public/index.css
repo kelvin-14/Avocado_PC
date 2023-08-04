@@ -1,0 +1,19 @@
+#root {
+    --background: rgba(247, 249, 255);
+    --secondary: white;
+    --text: black;
+    --surface: #f9f9f9;
+    --button: #3f37c9;
+    --gray-highlight: #545454;
+  }
+  
+  [data-theme = 'dark'] {
+    --background: black;
+    --secondary: #171717;
+    --text: white;
+    --surface: rgba(255,255,255,.2);
+    --button: #3f37c9;
+    --gray-highlight: #bfbfbf;
+  }
+body{
+}

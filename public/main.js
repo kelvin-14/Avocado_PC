@@ -15,8 +15,10 @@ function createWindow() {
         width: 1100,
         height: 700,
         webPreferences: {
-            nodeIntegration: true
-        },
+            nodeIntegration: true,
+            contextIsolation: false,
+            enableRemoteModule: true,
+          },
         titleBarStyle: 'hidden'
     });
     
@@ -26,6 +28,12 @@ function createWindow() {
 
     win.loadURL(startUrl);
     win.setMenu(null)
+    const ipcRenderer  = window.require('electron'). ipcRenderer;
+    window.addEventListener("close", ({ data }) => {
+        ipcRenderer.send("close-btn", null);
+    });
+
+ipcRenderer.on("pdf:url", _ => localStorage.clear());
     app.on('window-all-closed', () => {
         if (process.platform !== 'darwin') {
             app.quit()

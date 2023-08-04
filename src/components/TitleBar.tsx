@@ -1,7 +1,7 @@
 import '../css/TitleBar.css'
 
 const close = () => {
-
+    window.close()
 }
 
 const TitleBar =  () => {
@@ -19,7 +19,7 @@ const TitleBar =  () => {
                     check_box_outline_blank
                 </span>
             </button>
-            <button className = "titleBarButton">
+            <button className = "titleBarButton" onClick = {close}>
                 <span className="material-symbols-outlined">
                     close
                 </span>
