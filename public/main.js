@@ -16,11 +16,7 @@ function createWindow() {
         webPreferences: {
             nodeIntegration: true
         },
-        titleBarStyle: 'hidden',
-        titleBarOverlay: {
-            color: '',
-            symbolColor:''
-        }
+        titleBarStyle: 'hidden'
     });
     
     // if(isDev === 1) {

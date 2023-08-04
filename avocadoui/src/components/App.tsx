@@ -5,6 +5,8 @@ import '../css/App.css'
 import IDXDB from '../db/db';
 import Task from '../objects/Task';
 import Category from '../objects/Category';
+import Draggable, {DraggableCore} from "react-draggable";
+import TitleBar from './TitleBar';
 
 const avocadoDatabase = new IDXDB("AvocadoDatabase")
 
@@ -55,8 +57,9 @@ const App: React.FC =  () => {
   }, [])
 
   return (
-    <div className="App">
-      <div className='AppBar'></div>
+    
+      <div className="App">
+      <TitleBar/>
       <div className = "AppContent">
         <Menu 
           changePageIndex={changeMenuIndex}
@@ -73,6 +76,7 @@ const App: React.FC =  () => {
       </div>
         
         </div>
+    
   );
 }
 

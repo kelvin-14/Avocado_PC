@@ -7,10 +7,6 @@
     overflow: hidden;
     color: var(--text)
 }
-.AppBar {
-    background-color: var(--background);
-    height: 29px;
-}
 .AppContent {
     background: var(--background);
     display: flex;
