@@ -10,7 +10,6 @@
     flex-direction: row;
     color: var(--button);
     width: 100%;
-    border: 10px green;
     align-items: center;
     border-radius: 50px;
 }
