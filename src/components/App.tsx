@@ -42,8 +42,8 @@ const App: React.FC =  () => {
   }
 
   const toggleTheme = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    if(theme === 'light') {setDarkTheme(); setTheme('dark')}
-    else {setLightTheme(); setTheme('light')}
+    if(theme === 'light') {setDarkTheme(); setTheme('dark'); window.versions.darkenTitleBar()}
+    else {setLightTheme(); setTheme('light'); window.versions.lightenTitleBar()}
   }
 
   useEffect(() => {
@@ -58,16 +58,11 @@ const App: React.FC =  () => {
   if(information!= null){
   }
   
-
-
-
-
   return (
     
       <div className="App">
       <TitleBar/>
       <div className = "AppContent">
-      <p id="info" >${window.versions.node()}</p>
         <Menu 
           changePageIndex={changeMenuIndex}
           menuIndex = {menuIndex}

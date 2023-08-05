@@ -10,27 +10,48 @@ function createWindow() {
         protocol: 'file:',
         slashes: true,
     });
-    const win = new BrowserWindow({
+    let win = new BrowserWindow({
         width: 1100,
         height: 700,
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: true,
             enableRemoteModule: false,
-            preload: path.join(__dirname, 'preload.js')
+            preload: path.join(__dirname, 'preload.js'),
           },
-        titleBarStyle: 'hidden'
+          titleBarStyle: 'hidden',
+          titleBarOverlay: {
+            color: '#f1f1f1',
+            symbolColor: '#black',
+            height: 30
+          }
+          
     });
+    console.log(win)
     // if(isDev === 1) {
     //     win.webContents.openDevTools();
     // }
 
     win.loadURL(startUrl);
-    win.setMenu(null)
-}
+    return win
+}       
+    const darkenTitleBar = (window) => {
+        window.setTitleBarOverlay(
+            {color:'black', symbolColor:'white', height:30}
+        )
+    }
+
+    const lightenTitleBar = (window) => {
+        window.setTitleBarOverlay(
+            {color:'#f1f1f1', symbolColor:'black', height:30}
+        )
+    }
+
 
     app.whenReady().then(() => {
-        createWindow()
+        const window = createWindow()
+        ipcMain.handle("darkenTitleBar", () => {darkenTitleBar(window)})
+        ipcMain.handle("lightenTitleBar", () => {lightenTitleBar(window)})
     });
     app.on('window-all-closed', () => {
         if (process.platform !== 'darwin') {

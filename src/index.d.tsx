@@ -3,7 +3,9 @@ declare global {
     versions: {
         node:any,
         chrome:any,
-        electron:any
+        electron:any,
+        lightenTitleBar:any,
+        darkenTitleBar: any
     };
   }
 }
