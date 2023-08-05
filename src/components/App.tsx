@@ -54,12 +54,20 @@ const App: React.FC =  () => {
     }
     run()
   }, [])
+  const information = document.getElementById('info')
+  if(information!= null){
+  }
+  
+
+
+
 
   return (
     
       <div className="App">
       <TitleBar/>
       <div className = "AppContent">
+      <p id="info" >${window.versions.node()}</p>
         <Menu 
           changePageIndex={changeMenuIndex}
           menuIndex = {menuIndex}

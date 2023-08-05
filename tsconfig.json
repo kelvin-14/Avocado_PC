@@ -22,5 +22,5 @@
   },
   "include": [
     "src"
-, "../components"  ]
+, "../components", "src/index.d.tsx"  ]
 }
