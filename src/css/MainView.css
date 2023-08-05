@@ -3,9 +3,10 @@
     border-radius: 15px;
     display: block;
     padding: 10px 20px 10px 20px;
-    margin-bottom: 20px;
+    margin-bottom: 29px;
     margin-right:10px;
     background-color: var(--surface);
     border: 2px solid var(--border);
+    overflow: hidden;
 }
 
