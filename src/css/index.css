@@ -1,19 +1,21 @@
 :root {
-  --background: rgba(247, 249, 255);
+  --background: #f1f1f1;
   --secondary: white;
   --text: black;
   --surface: #f9f9f9;
   --button: #3f37c9;
   --gray-highlight: #545454;
+  --border: #e3e4e7
 }
 
 [data-theme = 'dark'] {
   --background: black;
   --secondary: #171717;
   --text: white;
-  --surface: rgba(255,255,255,.2);
+  --surface: #121212;
   --button: #3f37c9;
   --gray-highlight: #bfbfbf;
+  --border: #black
 }
 html {
   height: 100%;
@@ -29,7 +31,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   padding: 0;
-  overflow: auto;
 }
 #root {
   height: 100%;

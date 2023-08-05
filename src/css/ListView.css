@@ -32,12 +32,12 @@
     padding: 13px;
     border-radius: 25px;
     border: none;
-    background-color: var(--surface);
+    background-color: var(--background);
     color: var(--text)
 }
 
 .addTaskInput:focus {
     border: none;
-    outline: 1px solid var(--surface);
+    outline: 2px solid var(--border);
     background-color: var(--background);
 }
