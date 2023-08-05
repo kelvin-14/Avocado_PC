@@ -1,7 +1,6 @@
 import '../../css/Tasks.css'
 import { useEffect, useState } from 'react';
 import Task from '../../objects/Task';
-import FilterBar from './FilterBar';
 import ListView from './ListView';
 import TaskDetails from './TaskDetails';
 import BigBoldTitle from '../shared/BigBoldTitle';
