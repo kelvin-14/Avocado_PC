@@ -3,6 +3,7 @@
     flex-direction: row;
     margin: 0;
     height: 100%;
+    overflow: hidden;
 }
 p {
     margin-top: 0;
