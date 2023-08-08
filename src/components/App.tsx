@@ -46,6 +46,8 @@ const App: React.FC =  () => {
     else {setLightTheme(); setTheme('light'); window.versions.lightenTitleBar()}
   }
 
+  const setReminder = () => {}
+
   useEffect(() => {
     const run = async () => {
       await createTables()
@@ -63,6 +65,7 @@ const App: React.FC =  () => {
       <div className="App">
       <TitleBar/>
       <div className = "AppContent">
+        <button style = {{background:'red'}} onClick = {() => window.versions.setReminder(4000, "A reminder 4 seconds later", "Some...body! once told me the world is gonna roll me")}> sample notifications show</button>
         <Menu 
           changePageIndex={changeMenuIndex}
           menuIndex = {menuIndex}

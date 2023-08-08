@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain, ipcRenderer, Tray, Menu } = require('electron');
+const { app, BrowserWindow, ipcMain, ipcRenderer, Tray, Menu, Notification } = require('electron');
 const path = require('path');
 const url = require('url');
 function createWindow() {
@@ -48,11 +48,12 @@ function createWindow() {
 
 app.whenReady().then(() => {
     const window = createWindow()
-
+    
     ipcMain.handle("darkenTitleBar", () => {darkenTitleBar(window)})
     ipcMain.handle("lightenTitleBar", () => {lightenTitleBar(window)})
+    ipcMain.handle("setReminder", async (milliseconds, title, body) => {await showNotification(milliseconds, title, body)})
     
-    createTray()
+    createTray(window)
 
 });
 
@@ -82,8 +83,13 @@ const lightenTitleBar = (window) => {
     )
 }
 
+const showNotification = (milliseconds, title, body) => {
+    const notif = new Notification({title: title, body:body});
+    setTimeout(() => {notif.show()}, 4000)
+} 
+
 let tray = null
-const createTray = () => {
+const createTray = (window) => {
     tray = new Tray(path.join(__dirname, 'favicon.ico'))
     
     tray.setToolTip('Avoca.do')

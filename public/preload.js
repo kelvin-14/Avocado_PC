@@ -6,5 +6,6 @@ contextBridge.exposeInMainWorld('versions', {
     chrome: () => process.versions.chrome,
     electron: () => process.versions.electron,
     darkenTitleBar: () => ipcRenderer.invoke('darkenTitleBar'),
-    lightenTitleBar: () => ipcRenderer.invoke('lightenTitleBar')
+    lightenTitleBar: () => ipcRenderer.invoke('lightenTitleBar'),
+    setReminder: (milliseconds, title, body) => ipcRenderer.invoke('setReminder',milliseconds, title, body)
   })

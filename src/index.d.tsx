@@ -5,7 +5,8 @@ declare global {
         chrome:any,
         electron:any,
         lightenTitleBar:any,
-        darkenTitleBar: any
+        darkenTitleBar: any,
+        setReminder: any
     };
   }
 }
