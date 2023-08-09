@@ -1,9 +1,8 @@
 import '../../css/Tasks.css'
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Task from '../../objects/Task';
 import ListView from './ListView';
 import TaskDetails from './TaskDetails';
-import BigBoldTitle from '../shared/BigBoldTitle';
 
 function Tasks(
   {addItem, tasks, toggleCompleted, showBar, title}: 
@@ -16,20 +15,26 @@ function Tasks(
     if(divOpened) {
       if(newTask === focusedTask) {
         closeDetailsDiv()
+        setDivOpened(false)
       } else {
         setFocusedTask(newTask)
-        openDetailsDiv()
       }
+    } else {
+      setFocusedTask(newTask)
+      openDetailsDiv()
+      setDivOpened(true)
     }
   }
   const closeDetailsDiv = () => {
     const div = document.getElementById("TaskDetails")!
     div.style.visibility = "hidden"
+    div.style.display = 'none'
   }
 
   const openDetailsDiv = () => {
     const div = document.getElementById("TaskDetails")!
-    div.style.width = "50%"
+    div.style.display = 'block';
+    div.style.width = "60%"
     div.style.visibility = "visible"
   }
 

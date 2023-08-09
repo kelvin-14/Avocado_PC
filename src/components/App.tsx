@@ -56,16 +56,12 @@ const App: React.FC =  () => {
     }
     run()
   }, [])
-  const information = document.getElementById('info')
-  if(information!= null){
-  }
   
   return (
     
       <div className="App">
       <TitleBar/>
       <div className = "AppContent">
-        <button style = {{background:'red'}} onClick = {() => window.versions.setReminder(4000, "A reminder 4 seconds later", "Some...body! once told me the world is gonna roll me")}> sample notifications show</button>
         <Menu 
           changePageIndex={changeMenuIndex}
           menuIndex = {menuIndex}
