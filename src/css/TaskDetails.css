@@ -3,7 +3,7 @@
     width: 0%;
     height: 100%;
     visibility: hidden;
-    border-left: 5px solid var(--surface);
+    border-left: 5px solid var(--background);
 }
 
 #description {

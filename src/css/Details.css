@@ -11,6 +11,7 @@
     border: none;
     background-color: var(--surface);
     padding-bottom: 20px;
+    color: var(--text);
 }
 .taskTitle:focus {
     border: none;
@@ -42,11 +43,14 @@
 }
 .DetailTextArea {
     width: 100%;
-    background-color: var(--surface);
+    background-color: var(--background);
     border: none;
     resize:none;
-    border-radius: 25px;
-    padding: 10px
+    border-radius: 15px;
+    padding: 10px;
+    margin-left: 10px;
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
 }
 .DetailTextArea:focus {
     border: none;

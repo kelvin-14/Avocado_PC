@@ -1,9 +1,13 @@
 .TaskListItem {
     display: flex;
     align-items: center;
-    padding-top: 15px;
-    padding-bottom: 0px;
-    margin-bottom: 10px;
+    justify-content: center;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-radius: 5px;
+}
+.TaskListItem:hover {
+    background-color: var(--background);
 }
 .taskLabel {
     width: 100%;
