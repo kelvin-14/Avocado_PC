@@ -5,7 +5,7 @@ import EmptyPage from './EmptyPage';
 import Details from './Details';
 
 function TaskDetails(
-    {focusedTask}: {focusedTask: Task | undefined}
+    {focusedTask, deleteTask}: {focusedTask: Task | undefined, deleteTask: () => void}
 ) {
 
 
@@ -15,7 +15,7 @@ function TaskDetails(
           focusedTask === undefined ?
           <EmptyPage icon = "receipt_long" label = "click a task to view more information about it"/>
           : 
-          <Details focusedTask={focusedTask}/>
+          <Details focusedTask={focusedTask} deleteTask={deleteTask}/>
         }
     </div>
   );

@@ -4,9 +4,10 @@ import Task from '../objects/Task';
 import Settings from './settings/Settings';
 
 function MainView(
-    {menuIndex, addTask, tasks, toggleCompleted, toggleTheme, theme} : 
+    {menuIndex, addTask, deleteTask, tasks, toggleCompleted, toggleTheme, theme} : 
     { menuIndex: number, 
       addTask: (tableName: string, object: object) => void, 
+      deleteTask: (taskId: number) => void,
       tasks: Task[], toggleCompleted: (task: Task) => void, 
       toggleTheme: (e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
       theme: string
@@ -19,7 +20,8 @@ function MainView(
             case 0:
                 const notCompletedTasks = tasks.filter(it => it.completed === false)
                 pageToShow = < Tasks
-                    addItem = {addTask}
+                    addTask = {addTask}
+                    deleteTask = {deleteTask}
                     tasks = {notCompletedTasks}
                     toggleCompleted = {toggleCompleted}
                     showBar = {true}
@@ -30,7 +32,8 @@ function MainView(
             case 1:
                 const completedTasks = tasks.filter(it => it.completed === true)
                 pageToShow = < Tasks
-                    addItem = {()=> {}}
+                    addTask = {()=> {}}
+                    deleteTask =  {deleteTask}
                     tasks = {completedTasks}
                     toggleCompleted = {toggleCompleted}
                     showBar = {false}

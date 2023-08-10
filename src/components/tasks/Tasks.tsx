@@ -1,12 +1,18 @@
 import '../../css/Tasks.css'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Task from '../../objects/Task';
 import ListView from './ListView';
 import TaskDetails from './TaskDetails';
 
 function Tasks(
-  {addItem, tasks, toggleCompleted, showBar, title}: 
-  {addItem: (tableName: string, object: object) => void, tasks: Task[], toggleCompleted: (task: Task) => void, showBar: boolean, title: string}
+  {addTask, deleteTask, tasks, toggleCompleted, showBar, title}: 
+  {
+    addTask: (tableName: string, object: object) => void, 
+    deleteTask: (taskId: number) => void,
+    tasks: Task[], 
+    toggleCompleted: (task: Task) => void, 
+    showBar: boolean, title: string
+  }
 ) {
   const [focusedTask, setFocusedTask] = useState<Task>()
   const [divOpened, setDivOpened] = useState(true)
@@ -41,7 +47,7 @@ function Tasks(
   return (
     <div className="Tasks" id = "Tasks">
         <ListView
-          addItem = {addItem}
+          addTask = {addTask}
           tasks = {tasks}
           toggleCompleted = {toggleCompleted}
           changeFocusedTask = {(task: Task) => changeFocusedTask(task)}
@@ -49,6 +55,7 @@ function Tasks(
           title = {title}
         />
         <TaskDetails
+          deleteTask={() => {deleteTask(focusedTask?.id!); closeDetailsDiv();}}
           focusedTask = {focusedTask}
         />
     </div>

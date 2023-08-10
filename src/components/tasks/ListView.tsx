@@ -8,9 +8,9 @@ import TimePickerButton from './TimePickerButton'
 import BigBoldTitle from '../shared/BigBoldTitle'
 
 function ListView(
-  {addItem, tasks, toggleCompleted, changeFocusedTask,showBar, title}:
+  {addTask, tasks, toggleCompleted, changeFocusedTask,showBar, title}:
   {
-    addItem: (tableName: string, object: object) => void, 
+    addTask: (tableName: string, object: object) => void, 
     tasks: Task[], toggleCompleted: (task: Task) => void, 
     changeFocusedTask: (task: Task) => void, 
     showBar: boolean,
@@ -46,7 +46,7 @@ function ListView(
       taskToAdd.id = Math.floor(Date.now())
       taskToAdd.dueDate = taskDueDate ? Date.parse(taskDueDate) : null;
       taskToAdd.timeDue = taskTimeDue ? Date.parse(taskDueDate! + " " + taskTimeDue) : null; // TODO: make sure to make time button greyed out and unclickable if date not selected
-      await addItem('task', taskToAdd)
+      await addTask('task', taskToAdd)
       setTaskTitle("")
       setTaskDueDate(null)
       setTaskTimeDue(null)

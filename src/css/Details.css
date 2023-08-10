@@ -56,3 +56,19 @@
     border: none;
     outline: none;
 }
+.Options {
+    display: flex;
+    flex-direction: row;
+    height:fit-content;
+    padding: 10px;
+    align-items: end;
+    justify-content: end;
+}
+.Options .material-symbols-outlined {
+    align-items: center;
+    justify-content: center;
+    padding:3px;
+}
+#deleteButton {
+    padding:0;
+}

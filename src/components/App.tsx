@@ -69,6 +69,7 @@ const App: React.FC =  () => {
         <MainView 
           menuIndex = {menuIndex}
           addTask = {(tableName: string, object: object) => {avocadoDatabase.putValue(tableName, object); updateTasks()}}
+          deleteTask = {(taskId:number) => {avocadoDatabase.deleteValue('task', taskId); updateTasks()}}
           tasks = { tasks }
           toggleCompleted = {(task: Task) => {avocadoDatabase.toggleTaskCompleted(task); updateTasks()}}
           toggleTheme = {(e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => toggleTheme(e)}

@@ -6,9 +6,8 @@ import TimePickerButton from './TimePickerButton';
 import { getFormattedDate, getFormattedTime } from '../../utils/TimeUtils';
 
 function Details(
-    {focusedTask}: {focusedTask: Task | undefined}
+    {focusedTask, deleteTask}: {focusedTask: Task | undefined, deleteTask: ()=> void}
 ) {
-
   return (
     <div className="Details" id="Details">
         <input className = "taskTitle"  value={focusedTask?.title} onChange={()=>{}}/>
@@ -23,6 +22,14 @@ function Details(
                 article
             </span>
             <textarea className = "DetailTextArea" placeholder='Add a description...' cols={30} rows={10}></textarea>
+        </div>
+        <div className='Options'>
+            <button id = "deleteButton" onClick = {deleteTask}>
+                <span className="material-symbols-outlined" >
+                    delete
+                </span>
+            </button>
+            
         </div>
     </div>
   );
