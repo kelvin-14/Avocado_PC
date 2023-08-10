@@ -47,6 +47,7 @@ function ListView(
       taskToAdd.dueDate = taskDueDate ? Date.parse(taskDueDate) : null;
       taskToAdd.timeDue = taskTimeDue ? Date.parse(taskDueDate! + " " + taskTimeDue) : null; // TODO: make sure to make time button greyed out and unclickable if date not selected
       await addTask(taskToAdd)
+      console.log(taskToAdd)
       setTaskTitle("")
       setTaskDueDate(null)
       setTaskTimeDue(null)

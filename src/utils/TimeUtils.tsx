@@ -18,5 +18,13 @@ export const getFormattedTime = (timeLong: number) => {
     const minute = time.getMinutes()
     const am_pm = hour <= 12 ? "A.M." : "P.M."
 
-    return hour + ":" + minute + " " + am_pm
+    return hour%12 + ":" + minute + " " + am_pm
+}
+
+export const datePickerStringToLong = (date: string) => {
+  return Date.parse(date)
+}
+
+export const timePickerStringAndSelectedDateLong = (time: string, date: string) => {
+  return Date.parse(date + " " + time)
 }
