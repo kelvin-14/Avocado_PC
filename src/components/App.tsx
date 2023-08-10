@@ -68,7 +68,7 @@ const App: React.FC =  () => {
         />
         <MainView 
           menuIndex = {menuIndex}
-          addTask = {(tableName: string, object: object) => {avocadoDatabase.putValue(tableName, object); updateTasks()}}
+          addTask = {(task: Task) => {avocadoDatabase.putValue('task', task); updateTasks()}}
           deleteTask = {(taskId:number) => {avocadoDatabase.deleteValue('task', taskId); updateTasks()}}
           tasks = { tasks }
           toggleCompleted = {(task: Task) => {avocadoDatabase.toggleTaskCompleted(task); updateTasks()}}

@@ -6,11 +6,24 @@ import TimePickerButton from './TimePickerButton';
 import { getFormattedDate, getFormattedTime } from '../../utils/TimeUtils';
 
 function Details(
-    {focusedTask, deleteTask}: {focusedTask: Task | undefined, deleteTask: ()=> void}
+    {focusedTask, deleteTask, addTask}: {
+        focusedTask: Task | undefined, 
+        deleteTask: ()=> void, 
+        addTask: (task:Task) => void
+    }
 ) {
+    const editTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const newTitle = e.target.value
+        const newTask = focusedTask!
+        newTask.title = newTitle
+        addTask(
+            newTask
+        )
+    }
+
   return (
     <div className="Details" id="Details">
-        <input className = "taskTitle"  value={focusedTask?.title} onChange={()=>{}}/>
+        <input className = "taskTitle"  value={focusedTask?.title} onChange={editTitle}/>
         <div className= "DetailItem">
             <CalendarButton label = {focusedTask?.dueDate ? getFormattedDate(focusedTask.dueDate) :"Click to set due date"} setTaskDueDate={()=>{}}/>
         </div>

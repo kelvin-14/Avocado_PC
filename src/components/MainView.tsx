@@ -6,7 +6,7 @@ import Settings from './settings/Settings';
 function MainView(
     {menuIndex, addTask, deleteTask, tasks, toggleCompleted, toggleTheme, theme} : 
     { menuIndex: number, 
-      addTask: (tableName: string, object: object) => void, 
+      addTask: (task: Task) => void, 
       deleteTask: (taskId: number) => void,
       tasks: Task[], toggleCompleted: (task: Task) => void, 
       toggleTheme: (e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => void

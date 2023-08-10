@@ -10,7 +10,7 @@ import BigBoldTitle from '../shared/BigBoldTitle'
 function ListView(
   {addTask, tasks, toggleCompleted, changeFocusedTask,showBar, title}:
   {
-    addTask: (tableName: string, object: object) => void, 
+    addTask: (task: Task) => void, 
     tasks: Task[], toggleCompleted: (task: Task) => void, 
     changeFocusedTask: (task: Task) => void, 
     showBar: boolean,
@@ -46,7 +46,7 @@ function ListView(
       taskToAdd.id = Math.floor(Date.now())
       taskToAdd.dueDate = taskDueDate ? Date.parse(taskDueDate) : null;
       taskToAdd.timeDue = taskTimeDue ? Date.parse(taskDueDate! + " " + taskTimeDue) : null; // TODO: make sure to make time button greyed out and unclickable if date not selected
-      await addTask('task', taskToAdd)
+      await addTask(taskToAdd)
       setTaskTitle("")
       setTaskDueDate(null)
       setTaskTimeDue(null)

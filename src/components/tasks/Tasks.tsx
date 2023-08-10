@@ -7,7 +7,7 @@ import TaskDetails from './TaskDetails';
 function Tasks(
   {addTask, deleteTask, tasks, toggleCompleted, showBar, title}: 
   {
-    addTask: (tableName: string, object: object) => void, 
+    addTask: (task: Task) => void, 
     deleteTask: (taskId: number) => void,
     tasks: Task[], 
     toggleCompleted: (task: Task) => void, 
@@ -55,6 +55,7 @@ function Tasks(
           title = {title}
         />
         <TaskDetails
+          addTask = {addTask}
           deleteTask={() => {deleteTask(focusedTask?.id!); closeDetailsDiv();}}
           focusedTask = {focusedTask}
         />
