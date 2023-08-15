@@ -5,8 +5,8 @@ function createWindow() {
 
     const isDev = 1
 
-    const startUrl = 'http://localhost:3000' || url.format({
-        pathname: 'index.html',
+    const startUrl = 'http://127.0.0.1:3000' || url.format({
+        pathname: path.join("build",'index.html'),
         protocol: 'file:',
         slashes: true,
     });
@@ -27,9 +27,8 @@ function createWindow() {
           }
           
     });
-    // if(isDev === 1) {
-    //     win.webContents.openDevTools();
-    // }
+        win.webContents.openDevTools();
+
     win.loadURL(startUrl);
     win.on('minimize',function(event){
         event.preventDefault();
@@ -54,6 +53,8 @@ app.whenReady().then(() => {
     ipcMain.handle("setReminder", async (milliseconds, title, body) => {await showNotification(milliseconds, title, body)})
     
     createTray(window)
+    
+    console.log(path.join("build",'index.html'))
 
 });
 

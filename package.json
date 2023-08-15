@@ -12,19 +12,36 @@
   "homepage": "./",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electronmon .",
-    "package": "electron-builder build --mac --win -c.extraMetadata.main=build/electron.js --publish never",
+    "start": "electron-forge start",
+    "package": "electron-forge package",
     "publish": "electron-builder build --mac --win --publish always",
-    "build": "electron-packager .",
     "react-start": "react-scripts start",
     "react-build": "react-scripts build",
     "react-test": "react-scripts test",
-    "react-eject": "react-scripts eject"
+    "react-eject": "react-scripts eject",
+    "make": "electron-forge make"
+  },
+  "build": {
+    "appId": "avoca.do",
+    "files": [
+    "build/**/*",
+    "node_modules/**/*"
+    ],
+    "directories":{
+      "buildResources": "build",
+      "app": "build"
+    }
   },
   "keywords": [],
-  "author": "",
+  "authors": "happymeerkat",
   "license": "ISC",
   "devDependencies": {
+    "@electron-forge/cli": "^6.3.0",
+    "@electron-forge/maker-deb": "^6.3.0",
+    "@electron-forge/maker-rpm": "^6.3.0",
+    "@electron-forge/maker-squirrel": "^6.3.0",
+    "@electron-forge/maker-zip": "^6.3.0",
+    "@electron-forge/plugin-auto-unpack-natives": "^6.3.0",
     "electron": "^25.3.2",
     "electron-builder": "^24.6.3"
   },
@@ -36,6 +53,7 @@
     "@types/node": "^16.18.39",
     "@types/react": "^18.2.18",
     "@types/react-dom": "^18.2.7",
+    "electron-squirrel-startup": "^1.0.0",
     "electronmon": "^2.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
